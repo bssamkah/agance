@@ -1,0 +1,4 @@
+agence_front:
+    resource: "@AgenceFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
