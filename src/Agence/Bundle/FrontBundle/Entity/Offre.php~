@@ -76,13 +76,11 @@ class Offre {
      * @ORM\Column(name="etage", type="integer", nullable=true)
      */
     private $etage;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="note", type="integer", nullable=true)
-     */
-    private $note;
+   /**
+    * @ORM\OneToMany(targetEntity="GaleriePhoto", mappedBy="offre", cascade={"persist","remove"})
+    **/
+    protected $photos;
+    
     /**
      * @ORM\ManyToOne(targetEntity="Agence\Bundle\FrontBundle\Entity\User",inversedBy="offres", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=false)
@@ -308,5 +306,61 @@ class Offre {
     public function getResponsable()
     {
         return $this->responsable;
+    }
+
+    /**
+     * Set surface
+     *
+     * @param float $surface
+     * @return Offre
+     */
+    public function setSurface($surface)
+    {
+        $this->surface = $surface;
+    
+        return $this;
+    }
+
+    /**
+     * Get surface
+     *
+     * @return float 
+     */
+    public function getSurface()
+    {
+        return $this->surface;
+    }
+
+    /**
+     * Add photos
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\GaleriePhoto $photos
+     * @return Offre
+     */
+    public function addPhoto(\Agence\Bundle\FrontBundle\Entity\GaleriePhoto $photos)
+    {
+        $this->photos[] = $photos;
+    
+        return $this;
+    }
+
+    /**
+     * Remove photos
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\GaleriePhoto $photos
+     */
+    public function removePhoto(\Agence\Bundle\FrontBundle\Entity\GaleriePhoto $photos)
+    {
+        $this->photos->removeElement($photos);
+    }
+
+    /**
+     * Get photos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
     }
 }

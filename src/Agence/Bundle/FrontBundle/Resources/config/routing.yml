@@ -1,3 +1,9 @@
+agence_front_controller:
+    resource: "@AgenceFrontBundle/Controller"
+    type:  annotation
+    prefix:   /
+
+
 user_index:
     path:     /
     defaults: { _controller: AgenceFrontBundle:Default:index }
