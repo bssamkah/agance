@@ -1,6 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @AgenceFrontBundle/Resources/config/admin.xml }
+    - { resource: @AgenceFrontBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~
@@ -25,6 +27,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        fos_csrf_provider: "@form.csrf_provider"
 
 # Assetic Configuration
 assetic:
@@ -64,3 +68,22 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+# FosUserBundle
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: Agence\Bundle\FrontBundle\Entity\User
+    registration:
+        form:
+            type:               agencefront_user_registration
+   
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # Your other blocks
+sonata_admin:
+    templates:
+        layout:  AgenceFrontBundle::admin_layout.html.twig

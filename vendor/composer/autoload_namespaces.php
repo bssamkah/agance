@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Twig_Extensions_' => array($vendorDir . '/twig/extensions/lib'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
+    'Symfony\\Component\\ExpressionLanguage\\' => array($vendorDir . '/symfony/expression-language'),
     'Symfony\\Bundle\\MonologBundle' => array($vendorDir . '/symfony/monolog-bundle'),
     'Symfony\\Bundle\\AsseticBundle' => array($vendorDir . '/symfony/assetic-bundle'),
     'Symfony\\' => array($vendorDir . '/symfony/symfony/src'),
@@ -15,7 +16,10 @@ return array(
     'Sensio\\Bundle\\FrameworkExtraBundle' => array($vendorDir . '/sensio/framework-extra-bundle'),
     'Sensio\\Bundle\\DistributionBundle' => array($vendorDir . '/sensio/distribution-bundle'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'Knp\\Menu\\' => array($vendorDir . '/knplabs/knp-menu/src'),
+    'Knp\\Bundle\\MenuBundle' => array($vendorDir . '/knplabs/knp-menu-bundle'),
     'Incenteev\\ParameterHandler' => array($vendorDir . '/incenteev/composer-parameter-handler'),
+    'Exporter' => array($vendorDir . '/sonata-project/exporter/lib'),
     'Doctrine\\ORM' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),

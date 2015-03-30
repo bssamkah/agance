@@ -1,0 +1,114 @@
+{% extends "::base.html.twig" %}
+ {% block  content  %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<div id="hero-container">
+            <ul class="cb-slideshow">
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+            </ul>
+            <div class="home-header">
+                <div class="home-logo osLight"><span class="fa fa-home"></span></div>
+                <a href="#" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>
+                <div class="home-nav">
+                    <ul>
+                      
+                        <li><a href="#" class="btn btn-green" data-toggle="modal" data-target="#Inscription">Inscription</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="home-caption">
+                
+                    <div style="margin-top: -10%;" id="Connexion" role="dialog" aria-labelledby="signinLabel" >
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="signinLabel">Connexion</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                     
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                            <div class="form-group">
+                                <input type="text" placeholder="Address email or UserName" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" >
+                            </div>
+                            <div class="form-group">
+                                <input  id="password" name="_password" required="required"  type="password" placeholder="Mot de passe" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div class="checkbox custom-checkbox"><label><input type="checkbox" id="remember_me" name="_remember_me" value="on"><span class="fa fa-check"></span> Remember me</label></div>
+                                    </div>
+                                    <div class="col-xs-6 align-right">
+                                        <p class="help-block"><a href="#" class="text-green">Mot de passe oublier?</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="btn-group-justified">
+                                      <input style="width: 41%;margin-left: 24%;" type="submit" id="_submit" name="_submit" value="Connexion" class="btn btn-lg btn-green"/>
+                                  
+                                </div>
+                            </div>
+                            <p class="help-block">Vous n'avez pas un compte? <a href="#" class="modal-su text-green">Inscription</a></p>
+       
+</form>
+
+
+
+
+
+
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+    
+        </div>
+        <div class="highlight">
+            <div class="h-title osLight">Liste des offres plus récentes</div>
+            
+        </div>
+
+        <!-- Content -->
+
+     
+
+       
+
+        <!-- Footer -->
+
+     
+
+    
+
+        <div class="modal fade" id="Inscription" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="signupLabel">Inscription</h4>
+                    </div>
+                    <div class="modal-body">
+                       {{ render (controller('AgenceFrontBundle:Registration:register')) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+                          

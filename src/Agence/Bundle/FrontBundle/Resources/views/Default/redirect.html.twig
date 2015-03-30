@@ -1,0 +1,9 @@
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    
+     {{ render(controller('AgenceFrontBundle:Default:accueil')) }}
+    
+{% else %}
+    
+     {% include "AgenceFrontBundle:Default:index.html.twig" %}
+     
+{% endif %}

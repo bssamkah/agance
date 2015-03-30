@@ -2,6 +2,16 @@ parameters:
 #    agence_front.example.class: Agence\Bundle\FrontBundle\Example
 
 services:
+     Agencefront_user_registration.form.type:
+          class: Agence\Bundle\FrontBundle\Form\Type\RegistrationFormType
+          tags:
+              - { name: form.type, alias: agencefront_user_registration }
+          arguments: [%fos_user.model.user.class%]
 #    agence_front.example:
 #        class: %agence_front.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+     Agencefront_user.registration_listener:
+        class: Agence\Bundle\FrontBundle\EventListener\RegistrationListener
+        arguments: []
+        tags:
+            - { name: kernel.event_subscriber }      

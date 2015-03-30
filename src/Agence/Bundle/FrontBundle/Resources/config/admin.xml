@@ -1,0 +1,34 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+       <service id="sonata.admin.user" class="Agence\Bundle\Admin\UserAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Content" label="User"/>
+          <argument />
+          <argument>Agence\Bundle\FrontBundle\Entity\User</argument>
+          <argument />
+          <call method="setTranslationDomain">
+              <argument>AgenceFrontBundle</argument>
+          </call>
+      </service>
+      <service id="sonata.admin.agence" class="Agence\Bundle\Admin\AgenceAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Content" label="Agence"/>
+          <argument />
+          <argument>Agence\Bundle\FrontBundle\Entity\Agence</argument>
+          <argument />
+          <call method="setTranslationDomain">
+              <argument>AgenceFrontBundle</argument>
+          </call>
+      </service>
+      <service id="sonata.admin.offre" class="Agence\Bundle\Admin\OffreAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="Content" label="offre"/>
+          <argument />
+          <argument>Agence\Bundle\FrontBundle\Entity\Offre</argument>
+          <argument />
+          <call method="setTranslationDomain">
+              <argument>AgenceFrontBundle</argument>
+          </call>
+      </service>
+      
+   </services>
+</container>

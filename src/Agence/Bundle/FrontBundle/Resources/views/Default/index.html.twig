@@ -1,1 +1,270 @@
-Hello {{ name }}!
+{% extends "::base.html.twig" %}
+ {% block  content  %}
+ <!-- Hero -->
+
+        <div id="hero-container">
+            <ul class="cb-slideshow">
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+            </ul>
+            <div class="home-header">
+                <div class="home-logo osLight"><span class="fa fa-home"></span></div>
+                <a href="#" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>
+                <div class="home-nav">
+                    <ul>
+                        <li><a href="#" class="btn btn-green" data-toggle="modal" data-target="#Connexion">Connexion</a></li>
+                        <li><a href="#" class="btn btn-green" data-toggle="modal" data-target="#Inscription">Inscription</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="home-caption">
+                <div class="home-title">Maintenant, il est facile à trouver votre future maison</div>
+                <div class="home-subtitle">Avec Notre Site</div>
+                
+            </div>
+            <div class="search-panel">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Ville" placeholder="Ville" autocomplete="off">
+                    </div>
+                    <div class="form-group hidden-xs adv">
+                        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+                            <span class="dropdown-label">Chambres</span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-select">
+                            <li class="active"><input type="radio" name="bedno" checked="checked"><a href="#">Chambres</a></li>
+                            <li><input type="radio" name="bedno"><a href="#">1</a></li>
+                            <li><input type="radio" name="bedno"><a href="#">2</a></li>
+                            <li><input type="radio" name="bedno"><a href="#">3</a></li>
+                            <li><input type="radio" name="bedno"><a href="#">4</a></li>
+                        </ul>
+                    </div>
+                    <div class="form-group hidden-xs adv">
+                        <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+                            <span class="dropdown-label">Etage</span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-select">
+                            <li class="active"><input type="radio" name="bathno" checked="checked"><a href="#">Salle de bain</a></li>
+                            <li><input type="radio" name="bathno"><a href="#">1</a></li>
+                            <li><input type="radio" name="bathno"><a href="#">2</a></li>
+                            <li><input type="radio" name="bathno"><a href="#">3</a></li>
+                            <li><input type="radio" name="bathno"><a href="#">4</a></li>
+                        </ul>
+                    </div>
+                    <div class="form-group hidden-xs adv">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input class="form-control price" type="text" placeholder="À partir de">
+                        </div>
+                    </div>
+                    <div class="form-group hidden-xs adv">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input class="form-control price" type="text" placeholder="Jusqu'à">
+                        </div>
+                    </div>
+                    <div class="form-group hidden-xs adv">
+                        <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> À Louer</label></div>
+                    </div>
+                    <div class="form-group hidden-xs adv">
+                        <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> À Vendre</label></div>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="btn btn-green">Recherche</a>
+                        <a href="#" class="btn btn-o btn-white pull-right visible-xs" id="advanced">Recherche avancée <span class="fa fa-angle-up"></span></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="highlight">
+            <div class="h-title osLight">Liste des offres plus récentes</div>
+            
+        </div>
+
+        <!-- Content -->
+
+        <div class="home-wrapper">
+            <div class="home-content">
+                <div class="row pb40">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="single.html" class="propWidget-2">
+                            <div class="fig">
+                                <img src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
+                                <img class="blur" src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
+                                <div class="opac"></div>
+                                <div class="priceCap osLight"><span>$1,750,000</span></div>
+                                <div class="figType">À Vendre</div>
+                                <h3 class="osLight">Modern Residence in New York</h3>
+                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="single.html" class="propWidget-2">
+                            <div class="fig">
+                                <img src="{{ asset('images/prop/2-1.png') }}" alt="Hauntingly Beautiful Estate">
+                                <img class="blur" src="{{ ('images/prop/2-1.png') }}" alt="Hauntingly Beautiful Estate">
+                                <div class="opac"></div>
+                                <div class="priceCap osLight"><span>$1,550,000</span></div>
+                                <div class="figType">À Louer</div>
+                                <h3 class="osLight">Hauntingly Beautiful Estate</h3>
+                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="single.html" class="propWidget-2">
+                            <div class="fig">
+                                <img src="{{ asset('images/prop/3-1.png') }}" alt="Luxury Mansion">
+                                <img class="blur" src="{{ asset('images/prop/3-1.png') }}" alt="Luxury Mansion">
+                                <div class="opac"></div>
+                                <div class="priceCap osLight"><span>$2,350,000</span></div>
+                                <div class="figType">À Louer</div>
+                                <h3 class="osLight">Luxury Mansion</h3>
+                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="single.html" class="propWidget-2">
+                            <div class="fig">
+                                <img src="{{ asset('images/prop/4-1.png') }}" alt="Sophisticated Residence">
+                                <img class="blur" src="{{ ('images/prop/4-1.png') }}" alt="Sophisticated Residence">
+                                <div class="opac"></div>
+                                <div class="priceCap osLight"><span>$1,340,000</span></div>
+                                <div class="figType">À Louer</div>
+                                <h3 class="osLight">Sophisticated Residence</h3>
+                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="single.html" class="propWidget-2">
+                            <div class="fig">
+                                <img src="{{ asset('images/prop/5-1.png') }}" alt="House With a Lovely Glass">
+                                <img class="blur" src="{{ asset('images/prop/5-1.png') }}" alt="House With a Lovely Glass">
+                                <div class="opac"></div>
+                                <div class="priceCap osLight"><span>$1,930,000</span></div>
+                                <div class="figType">À Vendre</div>
+                                <h3 class="osLight">House With a Lovely Glass</h3>
+                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="single.html" class="propWidget-2">
+                            <div class="fig">
+                                <img src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
+                                <img class="blur" src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
+                                <div class="opac"></div>
+                                <div class="priceCap osLight"><span>$1,750,000</span></div>
+                                <div class="figType">À Vendre</div>
+                                <h3 class="osLight">Modern Residence in New York</h3>
+                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+
+        <!-- Footer -->
+
+        <div class="home-footer">
+            <div class="home-wrapper">              
+                <div class="copyright">Real estate web application<br> &copy; 2015</div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="Connexion" role="dialog" aria-labelledby="signinLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="signinLabel">Connexion</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                     
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate')}}" />
+
+                            <div class="form-group">
+                                <input type="text" placeholder="Address email or UserName" class="form-control" id="username" name="_username" value="" required="required" >
+                            </div>
+                            <div class="form-group">
+                                <input  id="password" name="_password" required="required"  type="password" placeholder="Mot de passe" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div class="checkbox custom-checkbox"><label><input type="checkbox" id="remember_me" name="_remember_me" value="on"><span class="fa fa-check"></span> Remember me</label></div>
+                                    </div>
+                                    <div class="col-xs-6 align-right">
+                                        <p class="help-block"><a href="#" class="text-green">Mot de passe oublier?</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="btn-group-justified">
+                                      <input style="width: 41%;margin-left: 24%;" type="submit" id="_submit" name="_submit" value="Connexion" class="btn btn-lg btn-green"/>
+                                  
+                                </div>
+                            </div>
+                            <p class="help-block">Vous n'avez pas un compte? <a href="#" class="modal-su text-green">Inscription</a></p>
+       
+</form>
+
+
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="Inscription" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="signupLabel">Inscription</h4>
+                    </div>
+                    <div class="modal-body">
+                       {{ render (controller('AgenceFrontBundle:Registration:register')) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        {% block  javascript  %}
+       <script>
+           
+$( "#fos_user_registration_form_profil" ).change(function () {
+
+var test=$('#fos_user_registration_form_profil').val();
+if(test == 'Client'){
+   $('#champ').hide();
+}else{
+    $('#champ').show();
+}
+     });
+            </script>
+        {% endblock %}
+        

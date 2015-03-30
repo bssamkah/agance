@@ -1,0 +1,47 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+      {{ form_errors(form) }}
+    {{ form_widget(form._token) }}
+    <div class="form-group">
+        {{ form_widget(form.username)}}
+
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.email)}}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.plainPassword.first)}}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.plainPassword.second)}}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.nom)}}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.prenom)}}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.tel)}}
+    </div>
+
+    <div class="form-group form-inline">
+        <div class="form-group" >
+
+        {{ form_widget(form.profil)}}
+   </div>
+
+   <div class="form-group" id="champ" style="display: none;">
+              {{ form_widget(form.agence )}}
+    </div>
+   </div>
+    <div class="form-group">
+        <div class="btn-group-justified">
+
+            <input style="  width: 44%; margin-left: 24%;" class="btn btn-lg btn-green" type="submit" value="Inscription" />
+        </div>
+    </div>
+
+    <p class="help-block">Déjà membre? <a href="#" class="modal-si text-green">Connexion</a></p>
+</form>

@@ -1,3 +1,6 @@
-agence_front_homepage:
-    pattern:  /hello/{name}
+user_index:
+    path:     /
     defaults: { _controller: AgenceFrontBundle:Default:index }
+user_accueil:
+    path:     /site
+    defaults: { _controller: AgenceFrontBundle:Default:accueil }

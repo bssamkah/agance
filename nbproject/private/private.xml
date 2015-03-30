@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Form/Type/RegistrationFormType.php</file>
+            <file>file:/C:/wamp/www/agance/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Registration/register_content.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Default/site.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/admin_layout.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Registration/register.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp/www/agance/web/js/app.js</file>
+        </group>
+    </open-files>
+</project-private>
