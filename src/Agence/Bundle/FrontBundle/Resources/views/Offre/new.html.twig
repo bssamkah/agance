@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-
+<!--
 {% block body -%}
     <h1>Offre creation</h1>
 
@@ -12,4 +12,172 @@
         </a>
     </li>
 </ul>
+{% endblock %}-->
+
+{% block content %}
+          <div id="header">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="fa fa-home marker"></span>
+                    <span class="logoText">reales</span>
+                </a>
+            </div>
+            <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
+            <div class="search">
+                <span class="searchIcon icon-magnifier"></span>
+                <input type="text" placeholder="Search for houses, apartments...">
+            </div>
+            <div class="headerUserWraper">
+                <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span><span class="counter">5</span></a>
+                <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
+                    <img class="avatar headerAvatar pull-left" src="images/avatar-1.png" alt="John Smith">
+                    <div class="userTop pull-left">
+                        <span class="headerUserName">John Smith</span> <span class="fa fa-angle-down"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+                <div class="dropdown-menu pull-right userMenu" role="menu">
+                    <div class="mobAvatar">
+                        <img class="avatar mobAvatarImg" src="images/avatar-1.png" alt="John Smith">
+                        <div class="mobAvatarName">John Smith</div>
+                    </div>
+                    <ul>
+                       
+                        <li><a href="#"><span class="icon-power"></span>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" class="mapHandler"><span class="icon-map"></span></a>
+            <div class="clearfix"></div>
+        </div>
+
+        <!-- Left Side Navigation -->
+
+        <div id="leftSide">
+            <nav class="leftNav scrollable">
+                <div class="search">
+                    <span class="searchIcon icon-magnifier"></span>
+                    <input type="text" placeholder="Search for houses, apartments...">
+                    <div class="clearfix"></div>
+                </div>
+                <ul>
+                    <li><a href="explore.html"><span class="navIcon icon-compass"></span><span class="navLabel">Explore</span></a></li>
+                    <li><a href="single.html"><span class="navIcon icon-home"></span><span class="navLabel">Single</span></a></li>
+                    <li><a href="add.html"><span class="navIcon icon-plus"></span><span class="navLabel">New</span></a></li>
+                   
+                  
+                </ul>
+            </nav>
+            <div class="leftUserWraper dropup">
+                <a href="#" class="avatarAction dropdown-toggle" data-toggle="dropdown">
+                    <img class="avatar" src="images/avatar-1.png" alt="John Smith"><span class="counter">5</span>
+                    <div class="userBottom pull-left">
+                        <span class="bottomUserName">John Smith</span> <span class="fa fa-angle-up pull-right arrowUp"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#"><span class="icon-power"></span>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="closeLeftSide"></div>
+
+        <!-- Content -->
+
+        <div id="wrapper">
+            <div id="mapView" class="mob-min"><div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Loading map...</div></div>
+            <div id="content" class="mob-max">
+                <div class="rightContainer">
+                    <h1>Ajouter Offre</h1>
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="form-group">
+                                    <label>Titre</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="form-group">
+                                    <label>Prix</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Addresse <span id="latitude" class="label label-default"></span> <span id="longitude" class="label label-default"></span></label>
+                            <input class="form-control" type="text" id="address" placeholder="Entrez un Lieu" autocomplete="off">
+                            <p class="help-block">Vous pouvez faire glisser le marqueur à la position de l'offre</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Chambres</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Etage</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Surface</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text">
+                                        <div class="input-group-addon">m&#178;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="btn-group">
+                                    <label>Type</label>
+                                    <div class="clearfix"></div>
+                                    <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                                        <span class="dropdown-label">À Vendre</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-select">
+                                        <li class="active"><input type="radio" name="ptype" checked="checked"><a href="#">À Vendre</a></li>
+                                        <li><input type="radio" name="ptype"><a href="#">À Louer</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Image Gallery</label>
+                                    <input type="file" class="file" multiple data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-o btn-default" data-browse-label="Browse Images">
+                                    <p class="help-block">Vous pouvez sélectionner plusieurs images à la fois</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Type du terrain</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="btn btn-green btn-lg">Ajouter Offre</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    
 {% endblock %}
