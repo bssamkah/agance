@@ -22,12 +22,7 @@ class Offre {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="titre", type="string", length=100)
-     */
-    private $titre;
+    
 
     /**
      * @var string
@@ -349,26 +344,5 @@ class Offre {
         return $this->photos;
     }
 
-    /**
-     * Set titre
-     *
-     * @param string $titre
-     * @return Offre
-     */
-    public function setTitre($titre)
-    {
-        $this->titre = $titre;
-    
-        return $this;
-    }
-
-    /**
-     * Get titre
-     *
-     * @return string 
-     */
-    public function getTitre()
-    {
-        return $this->titre;
-    }
+   
 }

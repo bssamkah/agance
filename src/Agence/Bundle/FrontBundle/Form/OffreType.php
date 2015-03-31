@@ -15,14 +15,15 @@ class OffreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lieu')
-            ->add('prix')
-            ->add('type')
-            ->add('description')
-            ->add('typeTerrain')
-            ->add('nbrChambre')
-            ->add('etage')
-            ->add('responsable')
+            ->add('type','choice', array('choices' => array('location' => 'Location', 'Vente' => 'vente'),array('required' => True)))
+            ->add('lieu','text',array('required'=>True))
+            ->add('prix','integer',array('required'=>True))
+            ->add('type','text',array('required'=>True))
+            ->add('description','textarea',array('required'=>True))
+            ->add('typeTerrain','text',array('required'=>True))
+            ->add('nbrChambre','integer',array('required'=>True))
+            ->add('etage','integer',array('required'=>True))
+          
         ;
     }
     

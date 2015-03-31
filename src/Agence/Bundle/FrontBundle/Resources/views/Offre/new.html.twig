@@ -10,8 +10,9 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                                 <div class="form-group">
-                                    <label>Titre</label>
-                                    <input type="text" class="form-control">
+                                    <label>type</label>
+                                    {{ form_widget(form.type, {'attr' : {'class':'form-control'} }) }}
+                                   
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -19,25 +20,26 @@
                                     <label>Prix</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">$</div>
-                                        <input class="form-control" type="text">
+                                        {{ form_widget(form.prix, {'attr' : {'class':'form-control'} }) }}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="4"></textarea>
+                             {{ form_widget(form.description, {'attr' : {'class':'form-control'} }) }}
                         </div>
                         <div class="form-group">
                             <label>Addresse <span id="latitude" class="label label-default"></span> <span id="longitude" class="label label-default"></span></label>
-                            <input class="form-control" type="text" id="address" placeholder="Entrez un Lieu" autocomplete="off">
+                          
+                            {{ form_widget(form.lieu, {'attr' : {'class':'form-control'} }) }}
                             <p class="help-block">Vous pouvez faire glisser le marqueur à la position de l'offre</p>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                                 <div class="form-group">
                                     <label>Chambres</label>
-                                    <input type="text" class="form-control">
+                                     {{ form_widget(form.nbrChambre, {'attr' : {'class':'form-control'} }) }}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
