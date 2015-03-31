@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+{% block navigation %}
+      <div id="header">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="fa fa-home marker"></span>
+                    <span class="logoText">reales</span>
+                </a>
+            </div>
+            <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
+            <div class="search">
+                <span class="searchIcon icon-magnifier"></span>
+                <input type="text" placeholder="Search for houses, apartments...">
+            </div>
+            <div class="headerUserWraper">
+                <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span><span class="counter">5</span></a>
+                <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
+                    <img class="avatar headerAvatar pull-left" src="{{ asset('images/profil.png') }}" alt="John Smith">
+                    <div class="userTop pull-left">
+                        <span class="headerUserName">John Smith</span> <span class="fa fa-angle-down"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+                <div class="dropdown-menu pull-right userMenu" role="menu">
+                    <div class="mobAvatar">
+                        <img class="avatar mobAvatarImg" src="{{ asset('images/avatar-1.png') }}" alt="John Smith">
+                        <div class="mobAvatarName">John Smith</div>
+                    </div>
+                    <ul>
+                       
+                        <li><a href="#"><span class="icon-power"></span>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" class="mapHandler"><span class="icon-map"></span></a>
+            <div class="clearfix"></div>
+        </div>
+       <!-- Left Side Navigation -->
+
+        <div id="leftSide">
+            <nav class="leftNav scrollable">
+                <div class="search">
+                    <span class="searchIcon icon-magnifier"></span>
+                    <input type="text" placeholder="Search for houses, apartments...">
+                    <div class="clearfix"></div>
+                </div>
+                <ul>
+                    <li><a href="explore.html"><span class="navIcon icon-compass"></span><span class="navLabel">Explore</span></a></li>
+                    <li><a href="single.html"><span class="navIcon icon-home"></span><span class="navLabel">Single</span></a></li>
+                    <li><a href="add.html"><span class="navIcon icon-plus"></span><span class="navLabel">New</span></a></li>
+                   
+                  
+                </ul>
+            </nav>
+          
+        </div>
+        <div class="closeLeftSide"></div>
+
+    {% endblock %}
+   

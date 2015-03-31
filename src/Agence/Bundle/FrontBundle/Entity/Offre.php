@@ -22,6 +22,12 @@ class Offre {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=100)
+     */
+    private $titre;
 
     /**
      * @var string
@@ -262,28 +268,7 @@ class Offre {
         return $this->etage;
     }
 
-    /**
-     * Set note
-     *
-     * @param integer $note
-     * @return Offre
-     */
-    public function setNote($note)
-    {
-        $this->note = $note;
     
-        return $this;
-    }
-
-    /**
-     * Get note
-     *
-     * @return integer 
-     */
-    public function getNote()
-    {
-        return $this->note;
-    }
 
     /**
      * Set responsable
@@ -362,5 +347,28 @@ class Offre {
     public function getPhotos()
     {
         return $this->photos;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     * @return Offre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string 
+     */
+    public function getTitre()
+    {
+        return $this->titre;
     }
 }

@@ -22,7 +22,6 @@ class OffreType extends AbstractType
             ->add('typeTerrain')
             ->add('nbrChambre')
             ->add('etage')
-            ->add('note')
             ->add('responsable')
         ;
     }
