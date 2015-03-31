@@ -1,66 +1,7 @@
-{% extends "::base.html.twig" %}
- {% block  content  %}
+{% extends "AgenceFrontBundle::layout_standar.html.twig" %}
+{% block  body  %}
  <!-- Hero -->
-
-      
-        <div id="header">
-            <div class="logo">
-                <a href="#">
-                    <span class="fa fa-home marker"></span>
-                    <span class="logoText">Home</span>
-                </a>
-            </div>
-            <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
-            <div class="search">
-                <span class="searchIcon icon-magnifier"></span>
-                <input type="text" placeholder="Recherche des maisons, appartements ...">
-            </div>
-            <div class="headerUserWraper">
-			<a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
-                    <img class="avatar headerAvatar pull-left" src="{{ asset('images/profil.png') }}" alt="avatar">
-                    <div class="userTop pull-left">
-                        <span class="headerUserName">{{ app.user.nom ~' '~  app.user.prenom }}</span> <span class="fa fa-angle-down"></span>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-                <div class="dropdown-menu pull-right userMenu" role="menu">
-                    <div class="mobAvatar">
-                        <img class="avatar mobAvatarImg" src="{{ asset('images/profil.png') }}" alt="avatar">
-                        <div class="mobAvatarName">{{ app.user.nom ~' '~  app.user.prenom }}</div>
-                    </div>
-                    <ul>
-                                        
-                       
-                        <li><a href="{{ path('fos_user_security_logout') }}"><span class="icon-power"></span>Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-                
-            <a href="#" class="mapHandler"><span class="icon-map"></span></a>
-            <div class="clearfix"></div>
-        </div>
-
-        <!-- Left Side Navigation -->
-
-        <div id="leftSide">
-            <nav class="leftNav scrollable">
-                <div class="search">
-                    <span class="searchIcon icon-magnifier"></span>
-                    <input type="text" placeholder="Recherche des maisons, appartements ...">
-                    <div class="clearfix"></div>
-                </div>
-                <ul>
-                    <li><a href="#"><span class="navIcon icon-compass"></span><span class="navLabel">Recherche</span></a></li>
-                    <li><a href="#"><span class="navIcon icon-plus"></span><span class="navLabel">New</span></a></li>
-                </ul>
-            </nav>
-            
-        </div>
-        <div class="closeLeftSide"></div>
-
         <!-- Content -->
-
         <div id="wrapper">
             <div id="mapView" class="mob-min"><div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Loading map...</div></div>
             <div id="content" class="mob-max">
