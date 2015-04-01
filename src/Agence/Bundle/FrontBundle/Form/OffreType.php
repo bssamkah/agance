@@ -15,14 +15,20 @@ class OffreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type','choice', array('choices' => array('location' => 'Location', 'Vente' => 'vente'),array('required' => True)))
+               ->add('titre','text',array('required'=>True))
+            ->add('type','choice', array('choices' => array('location' => 'location', 'Vente' => 'vente'),'required' => True ,'empty_value' => 'Choisissez Type',
+    'empty_data'  => null))
             ->add('lieu','text',array('required'=>True))
-            ->add('prix','integer',array('required'=>True))
-            ->add('type','text',array('required'=>True))
-            ->add('description','textarea',array('required'=>True))
+           
+            ->add('surface','integer',array('required'=>True))
             ->add('typeTerrain','text',array('required'=>True))
+            ->add('description','textarea',array('required'=>True))
+           
             ->add('nbrChambre','integer',array('required'=>True))
             ->add('etage','integer',array('required'=>True))
+             ->add('prix','integer',array('required'=>True))
+                 ->add('lat', 'number', array('attr' => array('class' => 'form-control')))
+                ->add('lng', 'number', array('attr' => array('class' => 'form-control')))
           
         ;
     }

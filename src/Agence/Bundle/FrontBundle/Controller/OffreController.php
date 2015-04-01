@@ -102,7 +102,7 @@ class OffreController extends Controller
     /**
      * Finds and displays a Offre entity.
      *
-     * @Route("/{id}", name="offre_show")
+     * @Route("/{id}/show", name="offre_show")
      * @Method("GET")
      * @Template()
      */
@@ -244,4 +244,37 @@ class OffreController extends Controller
             ->getForm()
         ;
     }
+    /**
+     * 
+     *
+     * @Route("/ajouter/", name="add-offre")
+     * @Method("GET|POST")
+     * @Template()
+     */
+    public function addAction(Request $request) {
+         if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('.');
+        }
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $offre = new Offre();
+        $offre->setResponsable($user);
+        $offre->setCreatedAt(new \DateTime());
+        
+        $form = $this->createForm(new OffreType, $offre);
+        $req = $this->get('request');
+        if ($req->getMethod() == "POST") {
+            $form->bind($req);
+            if ($form->isValid()) {
+                $em->persist($offre);
+                $em->flush();
+//add notification + add prticipation + add History
+              
+                return $this->redirect($this->generateUrl('offre_show', array('id' => $offre->getId())));
+            }
+        }
+        return $this->render('AgenceFrontBundle:Offre:new.html.twig', array('form' => $form->createView(), 'user' => $user));
+    }
+
 }

@@ -6,12 +6,13 @@
             <div id="content" class="mob-max">
                 <div class="rightContainer">
                     <h1>Ajouter Offre</h1>
-                    <form role="form">
+                    <form action="{{ path('add-offre')}}" {{ form_enctype(form) }} method='post' role="form">
+                        {{ form_errors(form) }}
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                                 <div class="form-group">
-                                    <label>type</label>
-                                    {{ form_widget(form.type, {'attr' : {'class':'form-control'} }) }}
+                                    <label>Titre de l'offre</label>
+                                    {{ form_widget(form.titre, {'attr' : {'class':'form-control'} }) }}
                                    
                                 </div>
                             </div>
@@ -45,14 +46,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                                 <div class="form-group">
                                     <label>Etage</label>
-                                    <input type="text" class="form-control">
+                                     {{ form_widget(form.etage, {'attr' : {'class':'form-control'} }) }}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                                 <div class="form-group">
                                     <label>Surface</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="text">
+                                        {{ form_widget(form.surface, {'attr' : {'class':'form-control'} }) }}
                                         <div class="input-group-addon">m&#178;</div>
                                     </div>
                                 </div>
@@ -60,14 +61,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                                 <div class="btn-group">
                                     <label>Type</label>
-                                    <div class="clearfix"></div>
-                                    <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                                        <span class="dropdown-label">À Vendre</span>&nbsp;&nbsp;&nbsp;<span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-select">
-                                        <li class="active"><input type="radio" name="ptype" checked="checked"><a href="#">À Vendre</a></li>
-                                        <li><input type="radio" name="ptype"><a href="#">À Louer</a></li>
-                                    </ul>
+                                   {{ form_widget(form.type, {'attr' : {'class':'form-control'} }) }}
                                 </div>
                             </div>
                         </div>
@@ -76,14 +70,24 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
                                     <label>Type du terrain</label>
-                                    <input type="text" class="form-control">
+                                    {{ form_widget(form.typeTerrain, {'attr' : {'class':'form-control'} }) }}
                                 </div>
                             </div>
                             
                         </div>
-                        <div class="form-group">
-                            <a href="#" class="btn btn-green btn-lg">Ajouter Offre</a>
+                                 <div class="row" style='display: none'>
+                                   {{ form_widget(form.lat, {'attr' : {'class':'cacher'} }) }}
+       
+                                    {{ form_widget(form.lng, {'attr' : {'class':'cacher'} }) }}
+                                  </div>
+                            
+                             <div class="form-group"style="text-align: center">
+                            <button  type="submit" value="Submit" class="btn btn-green btn-lg">Enregistrer</button>
+                            <button type="reset" value="Reset" class="btn btn-gray btn-lg">Reset</button>
                         </div>
+                        {{ form_widget(form._token) }}
+                         {{ form_rest(form) }}
+                       
                     </form>
                 </div>
             </div>

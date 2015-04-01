@@ -22,7 +22,12 @@ class Offre {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=100)
+     */
+    private $titre;
 
     /**
      * @var string
@@ -37,6 +42,12 @@ class Offre {
      * @ORM\Column(name="prix", type="float")
      */
     private $prix;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", name="date_creation")
+     */
+    protected $createdAt;
     /**
      * @var float
      *
@@ -77,10 +88,24 @@ class Offre {
      * @ORM\Column(name="etage", type="integer", nullable=true)
      */
     private $etage;
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="lat", type="float", nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="lng", type="float", nullable=true)
+     */
+    private $lng;
    /**
     * @ORM\OneToMany(targetEntity="GaleriePhoto", mappedBy="offre", cascade={"persist","remove"})
     **/
     protected $photos;
+    
     
     /**
      * @ORM\ManyToOne(targetEntity="Agence\Bundle\FrontBundle\Entity\User",inversedBy="offres", cascade={"persist","remove"})
@@ -344,5 +369,95 @@ class Offre {
         return $this->photos;
     }
 
-   
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     * @return Offre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string 
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set lat
+     *
+     * @param float $lat
+     * @return Offre
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+    
+        return $this;
+    }
+
+    /**
+     * Get lat
+     *
+     * @return float 
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * Set lng
+     *
+     * @param float $lng
+     * @return Offre
+     */
+    public function setLng($lng)
+    {
+        $this->lng = $lng;
+    
+        return $this;
+    }
+
+    /**
+     * Get lng
+     *
+     * @return float 
+     */
+    public function getLng()
+    {
+        return $this->lng;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Offre
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
 }

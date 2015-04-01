@@ -37,22 +37,24 @@
             <a href="#" class="mapHandler"><span class="icon-map"></span></a>
             <div class="clearfix"></div>
         </div>
-      
-        <!-- Left Side Navigation -->
+       <!-- Left Side Navigation -->
 
         <div id="leftSide">
             <nav class="leftNav scrollable">
                 <div class="search">
                     <span class="searchIcon icon-magnifier"></span>
-                    <input type="text" placeholder="Recherche des maisons, appartements ...">
+                    <input type="text" placeholder="Search for houses, apartments...">
                     <div class="clearfix"></div>
                 </div>
                 <ul>
-                    <li><a href="#"><span class="navIcon icon-compass"></span><span class="navLabel">Recherche</span></a></li>
-                    <li><a href="#"><span class="navIcon icon-plus"></span><span class="navLabel">New</span></a></li>
+                    <li><a href="explore.html"><span class="navIcon icon-compass"></span><span class="navLabel">Recherche</span></a></li>
+                  {% if app.user.profil == 'Responsable' %}
+                    <li><a href="add.html"><span class="navIcon icon-plus"></span><span class="navLabel">New</span></a></li>
+                   {% endif %}
+                  
                 </ul>
             </nav>
-            
+          
         </div>
         <div class="closeLeftSide"></div>
 
