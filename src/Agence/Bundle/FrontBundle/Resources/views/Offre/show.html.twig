@@ -1,49 +1,348 @@
-{% extends '::base.html.twig' %}
+{% extends "AgenceFrontBundle::layout_standar.html.twig" %}
+{% block body %}
+    <div id="wrapper">
+        <input style="width: 50%;" type="text" class="form-control" id="pac-input2" placeholder="Entrer ici votre région" autocomplete="on" size="60">
+        <div id="content" class="mob-max" >
 
-{% block body -%}
-    <h1>Offre</h1>
+            <div class="col-lg-12">
+                <div class="row">
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Lieu</th>
-                <td>{{ entity.lieu }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ entity.prix }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ entity.type }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Typeterrain</th>
-                <td>{{ entity.typeTerrain }}</td>
-            </tr>
-            <tr>
-                <th>Nbrchambre</th>
-                <td>{{ entity.nbrChambre }}</td>
-            </tr>
-            <tr>
-                <th>Etage</th>
-                <td>{{ entity.etage }}</td>
-            </tr>
-            <tr>
+                <div class="singleTop">
+                    <div id="carouselFull" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselFull" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselFull" data-slide-to="1"></li>
+                            <li data-target="#carouselFull" data-slide-to="2"></li>
+                            <li data-target="#carouselFull" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="{{asset('images/prop/4-1.png')}}" alt="First slide">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="{{asset('images/prop/4-2.png')}}" alt="Second slide">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="{{asset('images/prop/4-3.png')}}" alt="Third slide">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="{{asset('images/prop/4-4.png')}}" alt="Fourth slide">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carouselFull" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
+                        <a class="right carousel-control" href="#carouselFull" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></a>
+                    </div>
+                    <div class="summary">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="summaryItem">
+                                    <h1 class="pageTitle">Modern Residence in New York</h1>
+                                    <div class="address"><span class="icon-pointer"></span> 39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                    <ul class="rating">
+                                        <li><a href="#"><span class="fa fa-star"></span></a></li>
+                                        <li><a href="#"><span class="fa fa-star"></span></a></li>
+                                        <li><a href="#"><span class="fa fa-star"></span></a></li>
+                                        <li><a href="#"><span class="fa fa-star"></span></a></li>
+                                        <li><a href="#"><span class="fa fa-star-o"></span></a></li>
+                                        <li>(146)</li>
+                                    </ul>
+                                    <div class="favLink"><a href="#"><span class="icon-heart"></span></a>54</div>
+                                    <ul class="stats">
+                                        <li><span class="icon-eye"></span> 200</li>
+                                        <li><span class="icon-bubble"></span> 13</li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                    <ul class="features">
+                                        <li><span class="fa fa-moon-o"></span><div>2 Bedrooms</div></li>
+                                        <li><span class="icon-drop"></span><div>2 Bathrooms</div></li>
+                                        <li><span class="icon-frame"></span><div>2750 Sq Ft</div></li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="agentAvatar summaryItem">
+                                     <div class="clearfix"></div>
+                                    <img class="avatar agentAvatarImg" src="{{asset('images/profil.png')}}" alt="avatar">
+                                    <div class="agentName">Jane Smith</div>
+                                    <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn">Contact Agent</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="description">
+                    <h3>Description</h3>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                </div>
+                
+               
+                <div class="comments">
+                    <h3><span>4</span> Comments</h3>
+                    <div class="comment">
+                        <div class="commentAvatar">
+                            <img class="avatar" src="images/avatar-3.png" alt="avatar">
+                            <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
+                        </div>
+                        <div class="commentContent">
+                            <div class="commentName">Rust Cohle</div>
+                            <div class="commentBody">
+                                It is a long established fact that a reader will be distracted by the readable content
+                            </div>
+                            <div class="commentActions">
+                                <div class="commentTime"><span class="icon-clock"></span> 1 day ago</div>
+                                <ul>
+                                    <li><a href="#"><span class="icon-action-undo"></span></a></li>
+                                    <li><a href="#"><span class="icon-like"></span> 13</a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comment reply">
+                        <div class="commentAvatar">
+                            <img class="avatar" src="images/avatar-1.png" alt="avatar">
+                            <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
+                        </div>
+                        <div class="commentContent">
+                            <div class="commentName">John Smith</div>
+                            <div class="commentBody">
+                                Comment posted by me. I have the power to remove it.
+                            </div>
+                            <div class="commentActions">
+                                <div class="commentTime"><span class="icon-clock"></span> 2 hours ago</div>
+                                <ul>
+                                    <li><a href="#"><span class="fa fa-trash-o"></span></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comment">
+                        <div class="commentAvatar">
+                            <img class="avatar" src="images/avatar-5.png" alt="avatar">
+                            <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
+                        </div>
+                        <div class="commentContent">
+                            <div class="commentName">Alex Rogers</div>
+                            <div class="commentBody">
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
+                            </div>
+                            <div class="commentActions">
+                                <div class="commentTime"><span class="icon-clock"></span> 20 minutes ago</div>
+                                <ul>
+                                    <li><a href="#"><span class="icon-action-undo"></span></a></li>
+                                    <li><a href="#"><span class="icon-like"></span> 13</a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comment">
+                        <div class="commentAvatar">
+                            <img class="avatar" src="images/avatar-2.png" alt="avatar">
+                            <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
+                        </div>
+                        <div class="commentContent">
+                            <div class="commentName">Jane Smith</div>
+                            <div class="commentBody">
+                                Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                            </div>
+                            <div class="commentActions">
+                                <div class="commentTime"><span class="icon-clock"></span> 5 minutes ago</div>
+                                <ul>
+                                    <li><a href="#"><span class="icon-action-undo"></span></a></li>
+                                    <li><a href="#"><span class="icon-like"></span> 13</a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+           
+                </div>
+                <div class="commentsFormWrapper">
+                <div class="cfAvatar">
+                    <img class="avatar" src="images/avatar-1.png" alt="avatar">
+                </div>
+                <form class="commentsForm">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Write a comment...">
+                        <span class="input-group-btn"><a class="btn btn-green">Post</a></span>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            </div>
             
-            </tr>
-        </tbody>
-    </table>
+        </div>
+        <div id="map-offre-add" style="height: 100%" class="mob-min"><div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Loading map...</div> </div>
 
-        <ul class="record_actions">
-    
-</ul>
+    </div>
+<div class="modal fade" id="contactAgent" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="contactLabel">Contact Agent</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="contactForm">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cfItem">
+                                    <input type="text" placeholder="Name" class="form-control">
+                                 </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cfItem">
+                                    <input type="text" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cfItem">
+                                    <input type="text" placeholder="Subject" class="form-control">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cfItem">
+                                    <textarea placeholder="Message" rows="3" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Close</a>
+                        <a href="#" class="btn btn-round btn-green">Send message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block javascript %}
+
+    <script>
+
+        function initialize() {
+            var mapOptions = {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 15
+            };
+            var markerevent;
+            var geocoder;
+            geocoder = new google.maps.Geocoder();
+            var mapAddOf = new google.maps.Map(document.getElementById('map-offre-add'),
+                    mapOptions);
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(function(position) {
+
+                    var posOffre = new google.maps.LatLng(position.coords.latitude,
+                            position.coords.longitude);
+                    var newMarker = new google.maps.Marker({
+                        position: posOffre,
+                        map: mapAddOf,
+                        icon: new google.maps.MarkerImage('/agance/web/images/marker-red.png'),
+                        draggable: false,
+                        animation: google.maps.Animation.DROP
+
+                    });
+                    mapAddOf.setCenter(posOffre);
+
+                    var myLatLng = new google.maps.LatLng({{entity.lat}}, {{entity.lng}});
+var markerevent = new google.maps.Marker({
+position: myLatLng,
+map: mapAddOf,
+icon: new google.maps.MarkerImage('/agance/web/images/marker-green.png'),
+draggable: false,
+animation: google.maps.Animation.DROP
+});
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService()
+directionsDisplay = new google.maps.DirectionsRenderer({
+polylineOptions: {
+strokeColor: "#c02100"
+}
+});
+directionsDisplay.setMap(mapAddOf);
+calcRoute();
+function calcRoute() {
+
+var request = {
+origin:posOffre,
+destination:myLatLng,
+travelMode: google.maps.TravelMode.DRIVING
+};
+directionsService.route(request, function(response, status) {
+if (status == google.maps.DirectionsStatus.OK) {
+directionsDisplay.setDirections(response);
+directionsDisplay.setOptions({ suppressMarkers: true });
+}
+});
+}
+                    
+
+                }, function() {
+                    handleNoGeolocation(true);
+                });
+            } else {
+                handleNoGeolocation(false);
+            }
+
+            var input = (document.getElementById('pac-input2'));
+            mapAddOf.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
+            var searchBox = new google.maps.places.SearchBox((input));
+            google.maps.event.addListener(searchBox, 'places_changed', function() {
+                var places = searchBox.getPlaces();
+                if (places.length == 0) {
+                    return;
+                }
+
+                markers = [];
+                var bounds = new google.maps.LatLngBounds();
+                for (var i = 0, place; place = places[i]; i++) {
+                    var image = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+                    bounds.extend(place.geometry.location);
+                }
+
+                mapAddOf.fitBounds(bounds);
+                mapAddOf.setZoom(15);
+            });
+            google.maps.event.addListener(mapAddOf, 'bounds_changed', function() {
+                var bounds = mapAddOf.getBounds();
+                searchBox.setBounds(bounds);
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    </script>
 {% endblock %}
