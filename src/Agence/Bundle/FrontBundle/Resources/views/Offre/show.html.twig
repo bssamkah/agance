@@ -56,15 +56,15 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                                 <div class="summaryItem">
-                                    <h1 class="pageTitle">Modern Residence in New York</h1>
-                                    <div class="address"><span class="icon-pointer"></span> 39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                    <h1 class="pageTitle">{{entity.titre}}</h1>
+                                    <div class="address"><span class="icon-pointer"></span> {{entity.lieu}}</div>
                                     <ul class="rating">
                                         <li><a href="#"><span class="fa fa-star"></span></a></li>
                                         <li><a href="#"><span class="fa fa-star"></span></a></li>
                                         <li><a href="#"><span class="fa fa-star"></span></a></li>
                                         <li><a href="#"><span class="fa fa-star"></span></a></li>
                                         <li><a href="#"><span class="fa fa-star-o"></span></a></li>
-                                        <li>(146)</li>
+                                        <li>(14)</li>
                                     </ul>
                                     <div class="favLink"><a href="#"><span class="icon-heart"></span></a>54</div>
                                     <ul class="stats">
@@ -73,9 +73,9 @@
                                     </ul>
                                     <div class="clearfix"></div>
                                     <ul class="features">
-                                        <li><span class="fa fa-moon-o"></span><div>2 Bedrooms</div></li>
-                                        <li><span class="icon-drop"></span><div>2 Bathrooms</div></li>
-                                        <li><span class="icon-frame"></span><div>2750 Sq Ft</div></li>
+                                        <li><span class="fa fa-moon-o"></span><div>{{entity.nbrChambre}} Chambres</div></li>
+                                        <li><span class="icon-drop"></span><div>{{entity.etage}} Etage</div></li>
+                                        <li><span class="icon-frame"></span><div>{{entity.surface}} m&#178;</div></li>
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
@@ -84,8 +84,13 @@
                                 <div class="agentAvatar summaryItem">
                                      <div class="clearfix"></div>
                                     <img class="avatar agentAvatarImg" src="{{asset('images/profil.png')}}" alt="avatar">
-                                    <div class="agentName">Jane Smith</div>
-                                    <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn">Contact Agent</a>
+                                    <div class="agentName">Responsable</div>
+                                    <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn">Contacter Agent</a>
+                                    <div style="float: right; font-size: 18px;">
+                                    <a href="{{ path('update-offre',{'id': entity.id})}}"><span class="fa fa-edit"></span></a>
+                                    <a href="#supprimer" data-toggle="modal"><span class="fa fa-trash-o"></span></a>
+                                    
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +99,7 @@
                 <div class="clearfix"></div>
                 <div class="description">
                     <h3>Description</h3>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                    <p>{{entity.description}}</p>
                 </div>
                 
                
@@ -102,7 +107,7 @@
                     <h3><span>4</span> Comments</h3>
                     <div class="comment">
                         <div class="commentAvatar">
-                            <img class="avatar" src="images/avatar-3.png" alt="avatar">
+                            <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
                             <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
                         </div>
                         <div class="commentContent">
@@ -123,7 +128,7 @@
                     </div>
                     <div class="comment reply">
                         <div class="commentAvatar">
-                            <img class="avatar" src="images/avatar-1.png" alt="avatar">
+                            <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
                             <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
                         </div>
                         <div class="commentContent">
@@ -143,7 +148,7 @@
                     </div>
                     <div class="comment">
                         <div class="commentAvatar">
-                            <img class="avatar" src="images/avatar-5.png" alt="avatar">
+                            <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
                             <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
                         </div>
                         <div class="commentContent">
@@ -164,7 +169,7 @@
                     </div>
                     <div class="comment">
                         <div class="commentAvatar">
-                            <img class="avatar" src="images/avatar-2.png" alt="avatar">
+                            <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
                             <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
                         </div>
                         <div class="commentContent">
@@ -188,12 +193,12 @@
                 </div>
                 <div class="commentsFormWrapper">
                 <div class="cfAvatar">
-                    <img class="avatar" src="images/avatar-1.png" alt="avatar">
+                    <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
                 </div>
                 <form class="commentsForm">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Write a comment...">
-                        <span class="input-group-btn"><a class="btn btn-green">Post</a></span>
+                        <input type="text" class="form-control" placeholder="Ajoutez un commentaire...">
+                        <span class="input-group-btn"><a class="btn btn-green">Commenter</a></span>
                     </div>
                 </form>
                 <div class="clearfix"></div>
@@ -233,6 +238,24 @@
                     <div class="modal-footer">
                         <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Close</a>
                         <a href="#" class="btn btn-round btn-green">Send message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+<div class="modal fade" id="supprimer" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="contactLabel">Suppression</h4>
+                    </div>
+                    <div class="modal-body">
+                       Voulez vous supprimer cette offre?
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Fermer</a>
+                        <a href="#" class="btn btn-round btn-green">Confirmer</a>
                     </div>
                 </div>
             </div>
