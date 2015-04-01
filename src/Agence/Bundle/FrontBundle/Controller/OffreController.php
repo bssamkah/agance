@@ -15,89 +15,7 @@ use Agence\Bundle\FrontBundle\Form\OffreType;
  *
  * @Route("/offre")
  */
-class OffreController extends Controller
-{
-
-    /**
-     * Lists all Offre entities.
-     *
-     * @Route("/", name="offre")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AgenceFrontBundle:Offre')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
-    /**
-     * Creates a new Offre entity.
-     *
-     * @Route("/", name="offre_create")
-     * @Method("POST")
-     * @Template("AgenceFrontBundle:Offre:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-        $entity = new Offre();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('offre_show', array('id' => $entity->getId())));
-        }
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-     * Creates a form to create a Offre entity.
-     *
-     * @param Offre $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createCreateForm(Offre $entity)
-    {
-        $form = $this->createForm(new OffreType(), $entity, array(
-            'action' => $this->generateUrl('offre_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
-
-    /**
-     * Displays a form to create a new Offre entity.
-     *
-     * @Route("/new", name="offre_new")
-     * @Method("GET")
-     * @Template()
-     */
-    public function newAction()
-    {
-        $entity = new Offre();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
+class OffreController extends Controller {
 
     /**
      * Finds and displays a Offre entity.
@@ -106,8 +24,7 @@ class OffreController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
@@ -119,131 +36,45 @@ class OffreController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         );
     }
 
     /**
-     * Displays a form to edit an existing Offre entity.
+     * 
      *
-     * @Route("/{id}/edit", name="offre_edit")
-     * @Method("GET")
+     * @Route("/{id}/modifier", name="update-offre")
+     * @Method("GET|POST")
      * @Template()
      */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Offre entity.');
+    public function updateAction(Request $request, $id) {
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('.');
         }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
-    * Creates a form to edit a Offre entity.
-    *
-    * @param Offre $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Offre $entity)
-    {
-        $form = $this->createForm(new OffreType(), $entity, array(
-            'action' => $this->generateUrl('offre_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
-    /**
-     * Edits an existing Offre entity.
-     *
-     * @Route("/{id}", name="offre_update")
-     * @Method("PUT")
-     * @Template("AgenceFrontBundle:Offre:edit.html.twig")
-     */
-    public function updateAction(Request $request, $id)
-    {
+        $user = $this->container->get('security.context')->getToken()->getUser(); //utilisateur courant
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Offre entity.');
+        $offre = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
+        if (!$offre) {
+            return $this->render('AgenceFrontBundle::404.html.twig');
         }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createForm(new OffreType(), $offre);
         $editForm->handleRequest($request);
-
         if ($editForm->isValid()) {
+            $em->persist($offre);
             $em->flush();
+//add notification
 
-            return $this->redirect($this->generateUrl('offre_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('show_event', array('id' => $offre->getId())));
         }
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-    /**
-     * Deletes a Offre entity.
-     *
-     * @Route("/{id}", name="offre_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Offre entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('offre'));
+        return $this->render('AgenceFrontBundle:Offre:edit.html.twig', array(
+                    'user' => $user,
+                    'offre' => $offre,
+                    'edit_form' => $editForm->createView(),
+        ));
     }
 
-    /**
-     * Creates a form to delete a Offre entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('offre_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
-    }
     /**
      * 
      *
@@ -252,7 +83,7 @@ class OffreController extends Controller
      * @Template()
      */
     public function addAction(Request $request) {
-         if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             // Sinon on déclenche une exception « Accès interdit »
             throw new AccessDeniedException('.');
         }
@@ -261,7 +92,7 @@ class OffreController extends Controller
         $offre = new Offre();
         $offre->setResponsable($user);
         $offre->setCreatedAt(new \DateTime());
-        
+
         $form = $this->createForm(new OffreType, $offre);
         $req = $this->get('request');
         if ($req->getMethod() == "POST") {
@@ -270,11 +101,34 @@ class OffreController extends Controller
                 $em->persist($offre);
                 $em->flush();
 //add notification + add prticipation + add History
-              
+
                 return $this->redirect($this->generateUrl('offre_show', array('id' => $offre->getId())));
             }
         }
         return $this->render('AgenceFrontBundle:Offre:new.html.twig', array('form' => $form->createView(), 'user' => $user));
+    }
+     /**
+     * 
+     *
+     * @Route("/{id}/supprimer/", name="delete-offre", options={"expose"=true})
+     * @Method("GET|POST|DELETE")
+     * @Template()
+     */
+    public function deleteEventAction(Request $request,$id) {
+         if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('.');
+        }
+        $user = $this->container->get('security.context')->getToken()->getUser(); //utilisateur courant
+        $em = $this->getDoctrine()->getManager();
+        $offre = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
+        if (!$offre ) {
+             return $this->render('AgenceFrontBundle::404.html.twig');
+        }
+        $em->remove($offre);
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('user_accueil'));
     }
 
 }
