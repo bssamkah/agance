@@ -8,7 +8,96 @@
                 </div>
                 <div class="row">
 
-                    form edit
+                           <div class="row">
+
+                    <div class="rightContainer">
+                    <h1>Modifier Offre</h1>
+                    <form action="{{ path('add-offre')}}" {{ form_enctype(edit_form) }} method='post' role="form">
+                        {{ form_errors(edit_form) }}
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="form-group">
+                                    <label>Titre de l'offre</label>
+                                    {{ form_widget(edit_form.titre, {'attr' : {'class':'form-control'} }) }}
+                                   
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="form-group">
+                                    <label>Prix</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        {{ form_widget(edit_form.prix, {'attr' : {'class':'form-control'} }) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                             {{ form_widget(edit_form.description, {'attr' : {'class':'form-control'} }) }}
+                        </div>
+                        <div class="form-group">
+                            <label>Addresse <span id="latitude" class="label label-default"></span> <span id="longitude" class="label label-default"></span></label>
+                          
+                            {{ form_widget(edit_form.lieu, {'attr' : {'class':'form-control'} }) }}
+                            <p class="help-block">Vous pouvez faire glisser le marqueur à la position de l'offre</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Chambres</label>
+                                     {{ form_widget(edit_form.nbrChambre, {'attr' : {'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Etage</label>
+                                     {{ form_widget(edit_form.etage, {'attr' : {'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Surface</label>
+                                    <div class="input-group">
+                                        {{ form_widget(edit_form.surface, {'attr' : {'class':'form-control'} }) }}
+                                        <div class="input-group-addon">m&#178;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div class="btn-group">
+                                    <label>Type</label>
+                                   {{ form_widget(edit_form.type, {'attr' : {'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Type du terrain</label>
+                                    {{ form_widget(edit_form.typeTerrain, {'attr' : {'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            
+                        </div>
+                                 <div class="row" style='display: none'>
+                                   {{ form_widget(edit_form.lat, {'attr' : {'class':'cacher','id':'lat_id'} }) }}
+       
+                                    {{ form_widget(edit_form.lng, {'attr' : {'class':'cacher','id':'lng_id'} }) }}
+                                  </div>
+                            
+                             <div class="form-group"style="text-align: center">
+                            <button  type="submit" value="Submit" class="btn btn-green btn-lg">Enregistrer</button>
+                            <button type="reset" value="Reset" class="btn btn-gray btn-lg">Reset</button>
+                        </div>
+                        {{ form_widget(edit_form._token) }}
+                         {{ form_rest(edit_form) }}
+                       
+                    </form>
+                </div>
+                   
+                </div>
 
                 </div>
             </div>

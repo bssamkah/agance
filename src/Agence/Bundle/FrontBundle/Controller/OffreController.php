@@ -64,7 +64,7 @@ class OffreController extends Controller {
             $em->flush();
 //add notification
 
-            return $this->redirect($this->generateUrl('show_event', array('id' => $offre->getId())));
+           return $this->redirect($this->generateUrl('offre_show', array('id' => $offre->getId())));
         }
         return $this->render('AgenceFrontBundle:Offre:edit.html.twig', array(
                     'user' => $user,

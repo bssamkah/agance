@@ -12,6 +12,8 @@ class DefaultController extends Controller
     }
     public function accueilAction()
     {
-        return $this->render('AgenceFrontBundle:Default:site.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $offres = $em->getRepository("AgenceFrontBundle:offre")->findAll();
+        return $this->render('AgenceFrontBundle:Default:site.html.twig', array('offres' => $offres));
     }
 }
