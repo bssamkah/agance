@@ -86,11 +86,13 @@
                                     <img class="avatar agentAvatarImg" src="{{asset('images/profil.png')}}" alt="avatar">
                                     <div class="agentName">Responsable</div>
                                     <a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn">Contacter Agent</a>
+                                    {% if entity.responsable == app.user%}
                                     <div style="float: right; font-size: 18px;">
                                     <a href="{{ path('update-offre',{'id': entity.id})}}"><span class="fa fa-edit"></span></a>
                                     <a href="#supprimer" data-toggle="modal"><span class="fa fa-trash-o"></span></a>
                                     
                                 </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
