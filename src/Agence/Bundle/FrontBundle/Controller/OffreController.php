@@ -8,7 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Agence\Bundle\FrontBundle\Entity\Offre;
+use Agence\Bundle\FrontBundle\Entity\OffreFavoris;
 use Agence\Bundle\FrontBundle\Form\OffreType;
+use Symfony\Component\HttpFoundation\Response;
+use \DateTime;
 
 /**
  * Offre controller.
@@ -127,6 +130,40 @@ class OffreController extends Controller {
         $em->flush();
         
         return $this->redirect($this->generateUrl('user_accueil'));
+    }
+    /**
+     * 
+     *
+     * @Route("/favoris", name="add_favoris", options={"expose"=true})
+     * 
+     * @Method("GET|POST")
+     */
+    public function addFavorisAction() {
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('.');
+        }
+         $request = $this->get('request');
+       
+     //  $name = Array();
+     
+            $id = $request->get("id");
+            
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getEntityManager();
+        $offre = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
+        
+        $favoris = new OffreFavoris();
+        $favoris->setOffre($offre);
+        $favoris->setClient($user);
+        $favoris->setDatefavoris(new DateTime());
+
+        $em->persist($favoris);
+        $em->flush();
+         $response = new Response($id);
+        
+        return $response;
+        
     }
 
 }

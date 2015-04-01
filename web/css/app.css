@@ -359,40 +359,40 @@
     display: none;
 }
 .text-gray {
-  color: #999;
+    color: #999;
 }
 .no-touch a.text-gray:hover {
-  color: #333;
+    color: #333;
 }
 .text-green {
-  color: #0eaaa6;
+    color: #0eaaa6;
 }
 .no-touch a.text-green:hover {
-  color: #068b85;
+    color: #068b85;
 }
 .text-blue {
-  color: #1d82aa;
+    color: #1d82aa;
 }
 .no-touch a.text-blue:hover {
-  color: #086492;
+    color: #086492;
 }
 .text-magenta {
-  color: #9b156e;
+    color: #9b156e;
 }
 .no-touch a.text-magenta:hover {
-  color: #7e115f;
+    color: #7e115f;
 }
 .text-yellow {
-  color: #eab134;
+    color: #eab134;
 }
 .no-touch a.text-yellow:hover {
-  color: #dfa412;
+    color: #dfa412;
 }
 .text-red {
-  color: #ea3d36;
+    color: #ea3d36;
 }
 .no-touch a.text-red:hover {
-  color: #d22a2a;
+    color: #d22a2a;
 }
 .bg-green {
     color: #fff;
@@ -2506,7 +2506,7 @@ h1.pageTitle {
     display: none;
 }
 .no-touch .propWidget-2 .fig img.blur {
-     -webkit-transition: -webkit-transform 0.35s, opacity 0.35s;
+    -webkit-transition: -webkit-transform 0.35s, opacity 0.35s;
     transition: transform 0.35s, opacity 0.35s;
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -3657,7 +3657,7 @@ h1.pageTitle {
     background-color: #d9534f;
 }
 .progress-bar-green {
-  background-color: #0eaaa6;
+    background-color: #0eaaa6;
 }
 .progress-striped .progress-bar-green {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
@@ -4274,7 +4274,7 @@ body.black {
     border: 1px solid #dfdfdf;
     font-family: 'open_sansregular';
     -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -5575,5 +5575,10 @@ blockquote {
     }
     .featured.carousel .carousel-inner .item .carousel-caption .caption-subtitle {
         font-size: 11px;
+    }
+    .loader{
+        bottom: 0px;
+        text-align: center;
+        display: none;
     }
 }

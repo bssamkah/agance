@@ -16,7 +16,7 @@ class OffreType extends AbstractType
     {
         $builder
                ->add('titre','text',array('required'=>True))
-            ->add('type','choice', array('choices' => array('location' => 'location', 'Vente' => 'vente'),'required' => True ,'empty_value' => 'Choisissez Type',
+            ->add('type','choice', array('choices' => array('location' => 'Location', 'Vente' => 'Vente'),'required' => True ,'empty_value' => 'Choisissez Type',
     'empty_data'  => null))
             ->add('lieu','text',array('required'=>True))
            
