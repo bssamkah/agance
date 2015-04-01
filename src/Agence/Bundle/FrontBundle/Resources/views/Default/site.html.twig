@@ -123,9 +123,25 @@
                 function initialize() {
                 var mapOptions = {
                 center: {lat: - 34.397, lng: 150.644},
-                        zoom: 15,
-                        mapTypeId: google.maps.MapTypeId.HYBRID
+                        zoom: 15
                 };
+                var infobox = new InfoBox({
+        disableAutoPan: false,
+        maxWidth: 202,
+        pixelOffset: new google.maps.Size(-101, -285),
+        zIndex: null,
+        boxStyle: {
+            background: "url('/agance/web/images/infobox-bg.png') no-repeat",
+            opacity: 1,
+            width: "202px",
+            height: "245px"
+        },
+        closeBoxMargin: "28px 26px 0px 0px",
+        closeBoxURL: "",
+        infoBoxClearance: new google.maps.Size(1, 1),
+        pane: "floatPane",
+        enableEventPropagation: false
+    });
                         var markerevent;
                         var geocoder;
                         geocoder = new google.maps.Geocoder();
@@ -140,7 +156,7 @@
                         var newMarker = new google.maps.Marker({
                         position: posOffre,
                                 map: mapAddOf,
-                                icon: new google.maps.MarkerImage('../images/marker-red.png'),
+                                icon: new google.maps.MarkerImage('/agance/web/images/marker-red.png'),
                                 draggable: false,
                                 animation: google.maps.Animation.DROP
 
@@ -152,7 +168,60 @@
                 } else {
                 handleNoGeolocation(false);
                 }
+                {% for offre in offres %}
 
+                                                var myLatLng = new google.maps.LatLng({{offre.lat}}, {{offre.lng}});
+                                                        var marker_{{ offre.id}} = new google.maps.Marker({
+                                                        position: myLatLng,
+                                                                map: mapAddOf,
+                                                                icon: new google.maps.MarkerImage('/agance/web/images/marker-green.png'),
+                                                                draggable: false,
+                                                                animation: google.maps.Animation.DROP,
+                                                                title: "Cliquez pour voir aperçu"
+                                                        });
+                                                        
+                                                            var contenuInfoBulle_{{offre.id}} =  '<div class="infoW">' +
+                                    '<div class="propImg">' +
+                                        '<img src="/agance/web/images/prop/1-1.png">' +
+                                        '<div class="propBg">' +
+                                            '<div class="propPrice">${{offre.prix}}</div>' +
+                                            '<div class="propType">{{offre.type}}</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                    '<div class="paWrapper">' +
+                                        '<div class="propTitle">{{offre.titre}}</div>' +
+                                        '<div class="propAddress">{{offre.lieu}}</div>' +
+                                    '</div>' +
+                                    '<div class="propRating">' +
+                                        '<span class="fa fa-star"></span>' +
+                                        '<span class="fa fa-star"></span>' +
+                                        '<span class="fa fa-star"></span>' +
+                                        '<span class="fa fa-star"></span>' +
+                                        '<span class="fa fa-star-o"></span>' +
+                                    '</div>' +
+                                    '<ul class="propFeat">' +
+                                        '<li><span class="fa fa-moon-o"></span> {{offre.nbrchambre}}</li>' +
+                                        '<li><span class="icon-drop"></span>{{offre.etage}}</li>' +
+                                        '<li><span class="icon-frame"></span> {{offre.surface}}</li>' +
+                                    '</ul>' +
+                                    '<div class="clearfix"></div>' +
+                                    '<div class="infoButtons">' +
+                                        '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' +
+                                        '<a href="{{ path('offre_show',{'id': offre.id})}}" class="btn btn-sm btn-round btn-green viewInfo">View</a>' +
+                                    '</div>' +
+                                 '</div>';
+
+                                                                   
+                                                            google.maps.event.addListener(marker_{{offre.id}}, 'click', function() {
+                                                            
+                                                            infobox.setContent(contenuInfoBulle_{{offre.id}});
+                                                                    infobox.open(mapAddOf, marker_{{offre.id}});
+                                                            });
+                                                            $(document).on('click', '.closeInfo', function() {
+                                                    infobox.open(null, null);
+                                                    });
+                                                            
+                                                       {% endfor %}
                 var input = (document.getElementById('pac-input2'));
                         mapAddOf.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
                         var searchBox = new google.maps.places.SearchBox((input));
