@@ -1,15 +1,25 @@
-{% extends "AgenceFrontBundle::layout_standar.html.twig" %}
 
- {% block  body  %}
-    <h1>GaleriePhoto creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('galeriephoto') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
-{% endblock %}
+   <form action="{{ path('photo_create', { 'id': id}) }}" method="post" {{ form_enctype(form) }}>
+<div class="modal-content bordusbottomus">
+                <div class="modal-header bordustopus">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="contactLabel">Télécharger votre photo</h4>
+                </div>
+                <div class="modal-body">
+                  
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.file) }}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" data-dismiss="modal" value="Reset" class="btn btn-round btn-o btn-gray">Annuler</button>
+                    <button type="submit" value="Submit" class="btn btn-round btn-green">Confirmer</button>
+                </div>
+             
+            </div>
+{{ form_widget(form._token) }}
+</form>

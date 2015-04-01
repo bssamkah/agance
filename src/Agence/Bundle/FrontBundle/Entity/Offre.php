@@ -112,7 +112,7 @@ class Offre {
     
     
     /**
-     * @ORM\ManyToOne(targetEntity="Agence\Bundle\FrontBundle\Entity\User",inversedBy="offres", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Agence\Bundle\FrontBundle\Entity\User",inversedBy="offres")
      * @ORM\JoinColumn(nullable=false)
      */
     private $responsable;

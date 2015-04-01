@@ -103,7 +103,7 @@
                $('#loaderfavoris{{offre.id}}').show();
                 $('#ajouterFavoris{{offre.id}}').hide();
            
-                    var id = "{{offre.id}}"
+                    var id = "{{offre.id}}";
                     $.ajax({
                     type: "POST",
                             url: "{{path('add_favoris')}}",

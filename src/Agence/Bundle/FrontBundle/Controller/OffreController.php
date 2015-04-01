@@ -115,11 +115,12 @@ class OffreController extends Controller {
      * @Method("GET|POST|DELETE")
      * @Template()
      */
-    public function deleteEventAction(Request $request,$id) {
+    public function deleteOffreAction($id) {
          if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             // Sinon on déclenche une exception « Accès interdit »
             throw new AccessDeniedException('.');
         }
+       
         $user = $this->container->get('security.context')->getToken()->getUser(); //utilisateur courant
         $em = $this->getDoctrine()->getManager();
         $offre = $em->getRepository('AgenceFrontBundle:Offre')->find($id);

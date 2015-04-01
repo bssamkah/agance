@@ -244,4 +244,37 @@ class GaleriePhotoController extends Controller
             ->getForm()
         ;
     }
+    /**
+     * Creates a new Photo entity.
+     *
+     * @Route("/{id}/photo", name="photo_create")
+     * @Method("GET|POST")
+     * @Template("AgenceFrontBundle:GaleriePhoto:new.html.twig")
+     */
+    public function createPhotoAction(Request $request,$id)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $offre = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
+        $photo = new GaleriePhoto();
+        $form = $this->createForm(new GaleriePhotoType(), $photo);
+        $form->handleRequest($request);
+        $photo->setOffre($offre);
+    
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($photo);
+            $em->flush();
+ $request->getSession()->getFlashBag()->add('uploadphoto', "Votre photo a été ajouter avec success.");
+           return $this->redirect($this->generateUrl('offre_show', array('id' => $id)));
+        }
+        
+        return array(
+            
+            'photo' => $photo,
+            'user' => $user,
+            'id' => $offre->getId(),
+            'form'   => $form->createView(),
+        );
+    }
 }

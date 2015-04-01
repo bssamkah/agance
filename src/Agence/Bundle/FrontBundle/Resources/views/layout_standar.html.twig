@@ -49,7 +49,7 @@
                 <ul>
                     <li><a href="explore.html"><span class="navIcon icon-compass"></span><span class="navLabel">Recherche</span></a></li>
                   {% if app.user.profil == 'Responsable' %}
-                    <li><a href="add.html"><span class="navIcon icon-plus"></span><span class="navLabel">New</span></a></li>
+                    <li><a href="{{ path('add-offre') }}"><span class="navIcon icon-plus"></span><span class="navLabel">New</span></a></li>
                    {% endif %}
                   
                 </ul>
