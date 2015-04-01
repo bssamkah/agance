@@ -61,6 +61,10 @@ class User extends BaseUser {
      * @ORM\OneToMany(targetEntity="Agence\Bundle\FrontBundle\Entity\Offre", mappedBy="responsable", cascade={"persist","remove"})
      */
     protected $offres;
+      /**
+     * @ORM\OneToMany(targetEntity="Agence\Bundle\FrontBundle\Entity\OffreFavoris", mappedBy="client", cascade={"persist","remove"})
+     */
+    protected $clientfavoris;
 
     public function __construct() {
         parent::__construct();
@@ -284,5 +288,38 @@ class User extends BaseUser {
     public function getOffres()
     {
         return $this->offres;
+    }
+
+    /**
+     * Add clientfavoris
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\OffreFavoris $clientfavoris
+     * @return User
+     */
+    public function addClientfavori(\Agence\Bundle\FrontBundle\Entity\OffreFavoris $clientfavoris)
+    {
+        $this->clientfavoris[] = $clientfavoris;
+    
+        return $this;
+    }
+
+    /**
+     * Remove clientfavoris
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\OffreFavoris $clientfavoris
+     */
+    public function removeClientfavori(\Agence\Bundle\FrontBundle\Entity\OffreFavoris $clientfavoris)
+    {
+        $this->clientfavoris->removeElement($clientfavoris);
+    }
+
+    /**
+     * Get clientfavoris
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClientfavoris()
+    {
+        return $this->clientfavoris;
     }
 }

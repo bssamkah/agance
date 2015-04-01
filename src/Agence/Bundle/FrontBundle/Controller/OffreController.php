@@ -32,8 +32,7 @@ class OffreController extends Controller {
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Offre entity.');
         }
-
-     
+   
         return array(
             'entity' => $entity,
            

@@ -105,6 +105,10 @@ class Offre {
     * @ORM\OneToMany(targetEntity="GaleriePhoto", mappedBy="offre", cascade={"persist","remove"})
     **/
     protected $photos;
+    /**
+    * @ORM\OneToMany(targetEntity="OffreFavoris", mappedBy="offre", cascade={"persist","remove"})
+    **/
+    protected $offrefavoris;
     
     
     /**
@@ -436,5 +440,28 @@ class Offre {
     public function getLng()
     {
         return $this->lng;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Offre
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }

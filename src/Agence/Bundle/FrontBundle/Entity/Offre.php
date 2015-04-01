@@ -105,6 +105,10 @@ class Offre {
     * @ORM\OneToMany(targetEntity="GaleriePhoto", mappedBy="offre", cascade={"persist","remove"})
     **/
     protected $photos;
+    /**
+    * @ORM\OneToMany(targetEntity="OffreFavoris", mappedBy="offre", cascade={"persist","remove"})
+    **/
+    protected $offrefavoris;
     
     
     /**
@@ -459,5 +463,38 @@ class Offre {
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Add offrefavoris
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris
+     * @return Offre
+     */
+    public function addOffrefavori(\Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris)
+    {
+        $this->offrefavoris[] = $offrefavoris;
+    
+        return $this;
+    }
+
+    /**
+     * Remove offrefavoris
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris
+     */
+    public function removeOffrefavori(\Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris)
+    {
+        $this->offrefavoris->removeElement($offrefavoris);
+    }
+
+    /**
+     * Get offrefavoris
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOffrefavoris()
+    {
+        return $this->offrefavoris;
     }
 }
