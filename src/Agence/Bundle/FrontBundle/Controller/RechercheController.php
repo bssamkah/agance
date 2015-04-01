@@ -26,13 +26,8 @@ class RechercheController extends Controller {
      */
     public function rechercheAction() {
         $em = $this->getDoctrine()->getManager();
-
         $offres = $em->getRepository('AgenceFrontBundle:Offre')->findAll();
-
-        if (!$offres) {
-            throw $this->createNotFoundException('Unable to find Offre entity.');
-        }
-   return $this->render('AgenceFrontBundle:Recherche:recherche.html.twig',array('offres' => $offres));
+        return $this->render('AgenceFrontBundle:Recherche:recherche.html.twig',array('offres' => $offres));
         
     }
 

@@ -10,3 +10,6 @@ user_index:
 user_accueil:
     path:     /site
     defaults: { _controller: AgenceFrontBundle:Default:accueil }
+user_favoris:
+    path:     /mesfavoris
+    defaults: { _controller: AgenceFrontBundle:Default:mesFavoris }

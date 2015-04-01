@@ -8,10 +8,7 @@
                 </a>
             </div>
             <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
-            <div class="search">
-                <span class="searchIcon icon-magnifier"></span>
-                <input type="text" placeholder="Recherche des maisons, appartements ...">
-            </div>
+            
             <div class="headerUserWraper">
 			<a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
                     <img class="avatar headerAvatar pull-left" src="{{ asset('images/profil.png') }}" alt="avatar">
@@ -27,7 +24,7 @@
                     </div>
                     <ul>
                                         
-                       <li><a href="#"><span class="icon-badge"></span>Mes Favoris</a></li>
+                       <li><a href="{{ path('user_favoris') }}"><span class="icon-badge"></span>Mes Favoris</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}"><span class="icon-power"></span>Logout</a></li>
                     </ul>
                 </div>

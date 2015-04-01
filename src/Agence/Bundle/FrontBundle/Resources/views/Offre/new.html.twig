@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <label>Addresse <span id="latitude" class="label label-default"></span> <span id="longitude" class="label label-default"></span></label>
                           
-                            {{ form_widget(form.lieu, {'attr' : {'class':'form-control'} }) }}
+                            {{ form_widget(form.lieu, {'attr' : {'class':'form-control', 'readonly' : 'readonly'} }) }}
                             <p class="help-block">Vous pouvez faire glisser le marqueur à la position de l'offre</p>
                         </div>
                         <div class="row">

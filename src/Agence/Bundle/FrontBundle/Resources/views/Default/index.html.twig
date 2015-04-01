@@ -93,90 +93,23 @@
         <div class="home-wrapper">
             <div class="home-content">
                 <div class="row pb40">
+                    {% for offre in offres %}
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="single.html" class="propWidget-2">
+                        <a href="{{ path('offre_show',{'id' : offre.id }) }}" class="propWidget-2">
                             <div class="fig">
-                                <img src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
-                                <img class="blur" src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
+                                <img src="{{ asset('images/prop/1-1.png') }}" alt="{{ offre.type }}">
+                                <img class="blur" src="{{ asset('images/prop/1-1.png') }}" alt="{{ offre.type }}">
                                 <div class="opac"></div>
-                                <div class="priceCap osLight"><span>$1,750,000</span></div>
-                                <div class="figType">À Vendre</div>
-                                <h3 class="osLight">Modern Residence in New York</h3>
-                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
+                                <div class="priceCap osLight"><span>{{ offre.prix }}</span></div>
+                                <div class="figType">{{ offre.type }}</div>
+                                <h3 class="osLight">{{ offre.titre}}</h3>
+                                <div class="address">{{ offre.lieu }}</div>
                                 
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="single.html" class="propWidget-2">
-                            <div class="fig">
-                                <img src="{{ asset('images/prop/2-1.png') }}" alt="Hauntingly Beautiful Estate">
-                                <img class="blur" src="{{ ('images/prop/2-1.png') }}" alt="Hauntingly Beautiful Estate">
-                                <div class="opac"></div>
-                                <div class="priceCap osLight"><span>$1,550,000</span></div>
-                                <div class="figType">À Louer</div>
-                                <h3 class="osLight">Hauntingly Beautiful Estate</h3>
-                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
-                                
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="single.html" class="propWidget-2">
-                            <div class="fig">
-                                <img src="{{ asset('images/prop/3-1.png') }}" alt="Luxury Mansion">
-                                <img class="blur" src="{{ asset('images/prop/3-1.png') }}" alt="Luxury Mansion">
-                                <div class="opac"></div>
-                                <div class="priceCap osLight"><span>$2,350,000</span></div>
-                                <div class="figType">À Louer</div>
-                                <h3 class="osLight">Luxury Mansion</h3>
-                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
-                                
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="single.html" class="propWidget-2">
-                            <div class="fig">
-                                <img src="{{ asset('images/prop/4-1.png') }}" alt="Sophisticated Residence">
-                                <img class="blur" src="{{ ('images/prop/4-1.png') }}" alt="Sophisticated Residence">
-                                <div class="opac"></div>
-                                <div class="priceCap osLight"><span>$1,340,000</span></div>
-                                <div class="figType">À Louer</div>
-                                <h3 class="osLight">Sophisticated Residence</h3>
-                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
-                                
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="single.html" class="propWidget-2">
-                            <div class="fig">
-                                <img src="{{ asset('images/prop/5-1.png') }}" alt="House With a Lovely Glass">
-                                <img class="blur" src="{{ asset('images/prop/5-1.png') }}" alt="House With a Lovely Glass">
-                                <div class="opac"></div>
-                                <div class="priceCap osLight"><span>$1,930,000</span></div>
-                                <div class="figType">À Vendre</div>
-                                <h3 class="osLight">House With a Lovely Glass</h3>
-                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
-                                
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="single.html" class="propWidget-2">
-                            <div class="fig">
-                                <img src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
-                                <img class="blur" src="{{ asset('images/prop/1-1.png') }}" alt="Modern Residence in New York">
-                                <div class="opac"></div>
-                                <div class="priceCap osLight"><span>$1,750,000</span></div>
-                                <div class="figType">À Vendre</div>
-                                <h3 class="osLight">Modern Residence in New York</h3>
-                                <div class="address">39 Remsen St, Brooklyn, NY 11201, USA</div>
-                                
-                            </div>
-                        </a>
-                    </div>
+                                {% endfor %}
+                   
                 </div>
             </div>
         </div>

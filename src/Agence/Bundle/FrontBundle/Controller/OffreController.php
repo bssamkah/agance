@@ -11,6 +11,7 @@ use Agence\Bundle\FrontBundle\Entity\Offre;
 use Agence\Bundle\FrontBundle\Entity\OffreFavoris;
 use Agence\Bundle\FrontBundle\Form\OffreType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use \DateTime;
 
 /**
@@ -28,6 +29,10 @@ class OffreController extends Controller {
      * @Template()
      */
     public function showAction($id) {
+         if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('.');
+        }
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AgenceFrontBundle:Offre')->find($id);

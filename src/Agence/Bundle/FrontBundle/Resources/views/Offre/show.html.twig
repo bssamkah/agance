@@ -57,13 +57,10 @@
                                             <li><a href="#"><span class="fa fa-star"></span></a></li>
                                             <li><a href="#"><span class="fa fa-star"></span></a></li>
                                             <li><a href="#"><span class="fa fa-star-o"></span></a></li>
-                                            <li>(14)</li>
+                                           
                                         </ul>
-                                        <div class="favLink"><a href="#"><span class="icon-heart"></span></a>54</div>
-                                        <ul class="stats">
-                                            <li><span class="icon-eye"></span> 200</li>
-                                            <li><span class="icon-bubble"></span> 13</li>
-                                        </ul>
+                                     
+                                      
                                         <div class="clearfix"></div>
                                         <ul class="features">
                                             <li><span class="fa fa-moon-o"></span><div>{{entity.nbrChambre}} Chambres</div></li>
@@ -77,7 +74,7 @@
                                     <div class="agentAvatar summaryItem">
                                         <div class="clearfix"></div>
                                         <img class="avatar agentAvatarImg" src="{{asset('images/profil.png')}}" alt="avatar">
-                                        <div class="agentName">Responsable</div>
+                                        <div class="agentName">{{ entity.responsable.nom~''~entity.responsable.prenom}}</div>
                                         {% if entity.responsable != app.user%}<a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn">Contacter Agent</a> {% endif %}
                                         {% if entity.responsable == app.user%}
                                             <div style="float: right; font-size: 18px;">
