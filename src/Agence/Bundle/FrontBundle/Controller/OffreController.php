@@ -152,7 +152,9 @@ class OffreController extends Controller {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getEntityManager();
         $offre = $em->getRepository('AgenceFrontBundle:Offre')->find($id);
-        
+        $favorisoffre =  $em->getRepository('AgenceFrontBundle:OffreFavoris')->findOneBy(array('client'=> $user, 'offre'  => $offre));
+       if(!$favorisoffre)
+       {
         $favoris = new OffreFavoris();
         $favoris->setOffre($offre);
         $favoris->setClient($user);
@@ -160,6 +162,7 @@ class OffreController extends Controller {
 
         $em->persist($favoris);
         $em->flush();
+       }
          $response = new Response($id);
         
         return $response;
