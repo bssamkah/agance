@@ -13,3 +13,10 @@ user_accueil:
 user_favoris:
     path:     /mesfavoris
     defaults: { _controller: AgenceFrontBundle:Default:mesFavoris }
+recherche_index:
+    path:    /offres/result
+    defaults: { _controller: AgenceFrontBundle:Recherche:rechercheIndex }
+    
+offre_recherche:
+     path:    /result
+     defaults: { _controller: AgenceFrontBundle:Recherche:recherche }

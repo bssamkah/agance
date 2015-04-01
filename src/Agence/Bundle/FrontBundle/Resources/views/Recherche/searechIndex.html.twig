@@ -22,21 +22,42 @@
                 </ul>
             </div>
         </div>
-       
-        <div class="home-caption">
-            <div class="home-title">Maintenant, il est facile à trouver votre future maison </div>
-            <div class="home-subtitle">Avec Notre Site</div>
+        {% for offre in res.offres %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-top: 10%;">
+            <a href="{{ path('offre_show',{'id' : offre.id }) }}" class="propWidget-2" style="width: 60%;">
+                <div class="fig">
+                    <img src="/agance/web/images/prop/1-1.png" alt="type">
+                    <img class="blur" src="/agance/web/images/prop/1-1.png" alt="type">
+                    <div class="opac"></div>
+                    <div class="priceCap osLight"><span>prix</span></div>
+                    <div class="figType"></div>
+                    <h3 class="osLight">titre</h3>
+                    <div class="address">adresse</div>
 
+                </div>
+            </a>
         </div>
+       {% endfor %}
         <div class="search-panel">
-            <form action="{{ path('recherche_index',{'chambre':res.chambre}) }}" method="get" class="form-inline" role="form">
-              
+            <form class="form-inline" role="form">
+                 <div class="form-group hidden-xs adv">
+                    <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+                        <span class="dropdown-label">Type</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-select">
+                       
+                        <li><input type="radio" name="bedno"><a href="#">Location</a></li>
+                        <li><input type="radio" name="bedno"><a href="#">Vente</a></li>
+                        
+                    </ul>
+
+                </div>
                 <div class="form-group hidden-xs adv">
                     <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
                         <span class="dropdown-label">Chambres</span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-select">
-                        <li class="active"><input type="radio" name="bedno" value="{{res.chambre}}" checked="checked"><a href="#">Chambres</a></li>
+                        <li class="active"><input type="radio" name="bedno" checked="checked"><a href="#">Chambres</a></li>
                         <li><input type="radio" name="bedno"><a href="#">1</a></li>
                         <li><input type="radio" name="bedno"><a href="#">2</a></li>
                         <li><input type="radio" name="bedno"><a href="#">3</a></li>
@@ -49,64 +70,37 @@
                         <span class="dropdown-label">Etage</span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-select">
-                        <li class="active"><input type="radio"  name="bathno" checked="checked"><a href="#">Salle de bain</a></li>
-                        <li><input value="{{res.etage}}" type="radio" name="bathno"><a href="#">1</a></li>
-                        <li><input value="{{res.etage}}" type="radio" name="bathno"><a href="#">2</a></li>
-                        <li><input  value="{{res.etage}}" type="radio" name="bathno"><a href="#">3</a></li>
-                        <li><input value="{{res.etage}}" type="radio" name="bathno"><a href="#">4</a></li>
+                        <li class="active"><input type="radio" name="bathno" checked="checked"><a href="#">Salle de bain</a></li>
+                        <li><input type="radio" name="bathno"><a href="#">1</a></li>
+                        <li><input type="radio" name="bathno"><a href="#">2</a></li>
+                        <li><input type="radio" name="bathno"><a href="#">3</a></li>
+                        <li><input type="radio" name="bathno"><a href="#">4</a></li>
                     </ul>
 
                 </div>
                 <div class="form-group hidden-xs adv">
                     <div class="input-group">
                         <div class="input-group-addon">$</div>
-                        <input class="form-control price" type="text" value="{{res.prix}}" placeholder="À partir de">
+                        <input class="form-control price" type="text" placeholder="À partir de">
                     </div>
                 </div>
-                
+               
                 <div class="form-group hidden-xs adv">
-                    <div class="checkbox custom-checkbox"><label><input  value="{{res.type}}" type="checkbox"><span class="fa fa-check"></span> À Louer</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> À Louer</label></div>
                 </div>
                 <div class="form-group hidden-xs adv">
-                    <div class="checkbox custom-checkbox"><label><input value="{{res.type}}" type="checkbox"><span class="fa fa-check"></span> À Vendre</label></div>
+                    <div class="checkbox custom-checkbox"><label><input type="checkbox"><span class="fa fa-check"></span> À Vendre</label></div>
                 </div>
                 <div class="form-group">
-                    <button  type="submit" value="Submit" class="btn btn-green">Recherche</button>
-                   
+                    <a href="#" class="btn btn-green">Recherche</a>
+                    <a href="#" class="btn btn-o btn-white pull-right visible-xs" id="advanced">Recherche avancée <span class="fa fa-angle-up"></span></a>
                 </div>
             </form>
         </div>
     </div>
-    <div class="highlight">
-        <div class="h-title osLight">Liste des offres plus récentes</div>
-
-    </div>
-
+   
     <!-- Content -->
 
-    <div class="home-wrapper">
-        <div class="home-content">
-            <div class="row pb40">
-                {% for offre in offres %}
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="{{ path('offre_show',{'id' : offre.id }) }}" class="propWidget-2">
-                            <div class="fig">
-                                <img src="{{ asset('images/prop/1-1.png') }}" alt="{{ offre.type }}">
-                                <img class="blur" src="{{ asset('images/prop/1-1.png') }}" alt="{{ offre.type }}">
-                                <div class="opac"></div>
-                                <div class="priceCap osLight"><span>{{ offre.prix }}</span></div>
-                                <div class="figType">{{ offre.type }}</div>
-                                <h3 class="osLight">{{ offre.titre}}</h3>
-                                <div class="address">{{ offre.lieu }}</div>
-
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-
-            </div>
-        </div>
-    </div>
 
 
 
