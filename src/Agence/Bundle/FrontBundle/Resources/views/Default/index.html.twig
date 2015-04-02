@@ -32,28 +32,23 @@
             <form action="{{ path('recherche_index',{'chambre':res.chambre}) }}" method="get" class="form-inline" role="form">
               
                 <div class="form-group hidden-xs adv">
-                    <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+                   {# <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
                         <span class="dropdown-label">Chambres</span> <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-select">
-                        <li class="active"><input type="radio" name="bedno" value="{{res.chambre}}" checked="checked"><a href="#">Chambres</a></li>
-                        <li><input type="radio" name="bedno"><a href="#">1</a></li>
-                        <li><input type="radio" name="bedno"><a href="#">2</a></li>
-                        <li><input type="radio" name="bedno"><a href="#">3</a></li>
-                        <li><input type="radio" name="bedno"><a href="#">4</a></li>
-                    </ul>
-
+                    </a>#}
+                    <input name="chambre" value="{{res.chambre}}"  type="text" >
+                     <input name="etage" value="{{res.etage}}"  type="text" >
+                   
                 </div>
-                <div class="form-group hidden-xs adv">
+                {#<div class="form-group hidden-xs adv">
                     <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
                         <span class="dropdown-label">Etage</span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-select">
                         <li class="active"><input type="radio"  name="bathno" checked="checked"><a href="#">Salle de bain</a></li>
-                        <li><input value="{{res.etage}}" type="radio" name="bathno"><a href="#">1</a></li>
-                        <li><input value="{{res.etage}}" type="radio" name="bathno"><a href="#">2</a></li>
-                        <li><input  value="{{res.etage}}" type="radio" name="bathno"><a href="#">3</a></li>
-                        <li><input value="{{res.etage}}" type="radio" name="bathno"><a href="#">4</a></li>
+                        <li><input value="{{res.etage}}" type="radio" name="etage"><a href="#">1</a></li>
+                        <li><input value="{{res.etage}}" type="radio" name="etage"><a href="#">2</a></li>
+                        <li><input  value="{{res.etage}}" type="radio" name="etage"><a href="#">3</a></li>
+                        <li><input value="{{res.etage}}" type="radio" name="etage"><a href="#">4</a></li>
                     </ul>
 
                 </div>
@@ -69,7 +64,7 @@
                 </div>
                 <div class="form-group hidden-xs adv">
                     <div class="checkbox custom-checkbox"><label><input value="{{res.type}}" type="checkbox"><span class="fa fa-check"></span> À Vendre</label></div>
-                </div>
+                </div>#}
                 <div class="form-group">
                     <button  type="submit" value="Submit" class="btn btn-green">Recherche</button>
                    
