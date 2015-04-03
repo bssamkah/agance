@@ -17,12 +17,12 @@
                         <div id="carouselFull" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carouselFull" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselFull" data-slide-to="1"></li>
-                                <li data-target="#carouselFull" data-slide-to="2"></li>
-                                <li data-target="#carouselFull" data-slide-to="3"></li>
+                                {% for photo in entity.photos %}
+                                <li data-target="#carouselFull" data-slide-to="{{loop.index}}"></li>
+                                {% endfor %}
                             </ol>
                             <div class="carousel-inner">
-                                
+
                                 <div class="item active">
                                     <img src="{{asset('images/prop/4-1.png')}}" alt="First slide">
                                     <div class="container">
@@ -31,16 +31,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                    {% for photo in entity.photos %}
-                                        <div class="item">
-                                    <img src="{{asset(photo.WebPath)}}"  alt="First slide">
-                                    <div class="container">
-                                        <div class="carousel-caption">
+                                {% for photo in entity.photos %}
+                                    <div class="item">
+                                        <img src="{{asset(photo.WebPath)}}"  alt="First slide">
+                                        <div class="container">
+                                            <div class="carousel-caption">
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                               {% endfor %}
+                                {% endfor %}
                             </div>
                             <a class="left carousel-control" href="#carouselFull" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
                             <a class="right carousel-control" href="#carouselFull" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></a>
@@ -57,14 +57,14 @@
                                             <li><a href="#"><span class="fa fa-star"></span></a></li>
                                             <li><a href="#"><span class="fa fa-star"></span></a></li>
                                             <li><a href="#"><span class="fa fa-star-o"></span></a></li>
-                                           
+
                                         </ul>
-                                     
-                                      
+
+
                                         <div class="clearfix"></div>
                                         <ul class="features">
                                             <li><span class="fa fa-moon-o"></span><div>{{entity.nbrChambre}} Chambres</div></li>
-                                            <li><span class="icon-drop"></span><div>{{entity.etage}} Etage</div></li>
+                                            <li><span class="fa fa-building-o"></span><div>{{entity.etage}} Etage</div></li>
                                             <li><span class="icon-frame"></span><div>{{entity.surface}} m&#178;</div></li>
                                         </ul>
                                         <div class="clearfix"></div>
@@ -74,12 +74,11 @@
                                     <div class="agentAvatar summaryItem">
                                         <div class="clearfix"></div>
                                         <img class="avatar agentAvatarImg" src="{{asset('images/profil.png')}}" alt="avatar">
-                                        <div class="agentName">{{ entity.responsable.nom~''~entity.responsable.prenom}}</div>
+                                        <div class="agentName">{{ entity.responsable.nom}} {{entity.responsable.prenom}}</div>
                                         {% if entity.responsable != app.user%}<a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn">Contacter Agent</a> {% endif %}
                                         {% if entity.responsable == app.user%}
-                                            <div style="float: right; font-size: 18px;">
-                                                <a href="#uploadphoto" data-toggle="modal" class="btn btn-gray" title="upload photo"><span class="fa fa-plus"> Photo</span></a>
-
+                                            <div style=" font-size: 18px;">
+                                                <a href="#uploadphoto" data-toggle="modal" title="upload photo"><span class="fa fa-plus"> Photo</span></a>
                                                 <a href="{{ path('update-offre',{'id': entity.id})}}" title="modifier"><span class="fa fa-edit"></span></a>
                                                 <a href="#supprimer" data-toggle="modal" title="supprimer"><span class="fa fa-trash-o"></span></a>
                                             </div>
@@ -96,91 +95,27 @@
                     </div>
 
 
-                    <div class="comments">
-                        <h3><span>4</span> Comments</h3>
-                        <div class="comment">
-                            <div class="commentAvatar">
-                                <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
-                                <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
-                            </div>
-                            <div class="commentContent">
-                                <div class="commentName">Rust Cohle</div>
-                                <div class="commentBody">
-                                    It is a long established fact that a reader will be distracted by the readable content
+                    <div id="comments" class="comments">
+                        <h3><span>{{entity.comments|length}}</span> Commentaires</h3>
+                        {% for comment in entity.comments %}
+                            <div class="comment">
+                                <div class="commentAvatar">
+                                    <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
+                                    <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
                                 </div>
-                                <div class="commentActions">
-                                    <div class="commentTime"><span class="icon-clock"></span> 1 day ago</div>
-                                    <ul>
-                                        <li><a href="#"><span class="icon-action-undo"></span></a></li>
-                                        <li><a href="#"><span class="icon-like"></span> 13</a></li>
-                                    </ul>
-                                    <div class="clearfix"></div>
+                                <div class="commentContent">
+                                    <div class="commentName">{{comment.commenteur.nom}} {{comment.commenteur.prenom}}</div>
+                                    <div class="commentBody">
+                                        {{comment.Commentaire}}
+                                    </div>
+                                    <div class="commentActions">
+                                        <div class="commentTime"><span class="icon-clock"></span> {{comment.createdat|date('d-m-Y H:m')}}</div>
+                                        <div class="clearfix"></div>
+                                    </div>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="comment reply">
-                            <div class="commentAvatar">
-                                <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
-                                <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
-                            </div>
-                            <div class="commentContent">
-                                <div class="commentName">John Smith</div>
-                                <div class="commentBody">
-                                    Comment posted by me. I have the power to remove it.
-                                </div>
-                                <div class="commentActions">
-                                    <div class="commentTime"><span class="icon-clock"></span> 2 hours ago</div>
-                                    <ul>
-                                        <li><a href="#"><span class="fa fa-trash-o"></span></a></li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="comment">
-                            <div class="commentAvatar">
-                                <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
-                                <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
-                            </div>
-                            <div class="commentContent">
-                                <div class="commentName">Alex Rogers</div>
-                                <div class="commentBody">
-                                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
-                                </div>
-                                <div class="commentActions">
-                                    <div class="commentTime"><span class="icon-clock"></span> 20 minutes ago</div>
-                                    <ul>
-                                        <li><a href="#"><span class="icon-action-undo"></span></a></li>
-                                        <li><a href="#"><span class="icon-like"></span> 13</a></li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="comment">
-                            <div class="commentAvatar">
-                                <img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">
-                                <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
-                            </div>
-                            <div class="commentContent">
-                                <div class="commentName">Jane Smith</div>
-                                <div class="commentBody">
-                                    Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                                </div>
-                                <div class="commentActions">
-                                    <div class="commentTime"><span class="icon-clock"></span> 5 minutes ago</div>
-                                    <ul>
-                                        <li><a href="#"><span class="icon-action-undo"></span></a></li>
-                                        <li><a href="#"><span class="icon-like"></span> 13</a></li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
+                        {% endfor %}
                     </div>
 
                 </div>
@@ -190,8 +125,10 @@
                     </div>
                     <form class="commentsForm">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Ajoutez un commentaire...">
-                            <span class="input-group-btn"><a class="btn btn-green">Commenter</a></span>
+                            <input id="input" type="text" class="form-control" placeholder="Ajoutez un commentaire...">
+                            <span class="input-group-btn"><a id="btnmsg" class="btn btn-green">Commenter</a>
+                            <img id="load" style="display: none;" src="{{asset('ajax-loader-supp.gif') }}">
+                            </span>
                         </div>
                     </form>
                     <div class="clearfix"></div>
@@ -267,7 +204,51 @@
 {% block javascript %}
 
     <script>
+        $("#btnmsg").on('click', function() {
 
+            var comment = $("#input").val();
+
+            $("#input").val("");
+            var oa = new Object();
+            oa.comment = comment;
+            if (comment) {
+                $("#btnmsg").hide();
+                $("#load").show();
+                $.ajax({
+                    url: "{{ path('ajax_offre_comment',{'id': entity.id})}}",
+                    type: 'POST',
+                    data: oa,
+                    contentType: "application/json; charset=ISO-8859-4",
+                    beforeSend: function() {
+                    },
+                    success: function() {
+                        $("#load").hide();
+                        $("#btnmsg").show();
+                        $("#input").val("");
+                        $("#comments").append('<div class="comment">'+
+                                '<div class="commentAvatar">'+
+                                    '<img class="avatar" src="{{asset('images/profil.png')}}" alt="avatar">'+
+                                    '<div class="commentArrow"><span class="fa fa-caret-left"></span></div>'+
+                                '</div>'+
+                                '<div class="commentContent">'+
+                                    '<div class="commentName">{{app.user.nom}} {{app.user.prenom}}</div>'+
+                                    '<div class="commentBody">'+ comment +'</div>'+
+                                    '<div class="commentActions">'+
+                                        '<div class="commentTime"><span class="icon-clock"></span> {{ date()|date('d-m-Y H:m')}}</div>'+
+                                        '<div class="clearfix"></div>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="clearfix"></div>'+
+                            '</div>');
+                    },
+                    error: function() {
+                    }
+                });
+            } else {
+                $("#load").hide();
+                $("#btnmsg").show();
+            }
+        });
         function initialize() {
             var mapOptions = {
                 center: {lat: -34.397, lng: 150.644},

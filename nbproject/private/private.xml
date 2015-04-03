@@ -3,26 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Form/Type/RegistrationFormType.php</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/Admin/UserAdmin.php</file>
-            <file>file:/C:/wamp/www/agance/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Security/login.html.twig</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/config/services.yml</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/config/admin.xml</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Entity/Comment.php</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Controller/CommentController.php</file>
+            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Offre/show.html.twig</file>
             <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Entity/Offre.php</file>
-            <file>file:/C:/wamp/www/agance/app/config/routing.yml</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Registration/register_content.html.twig</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/Admin/AgenceAdmin.php</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Default/site.html.twig</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/admin_layout.html.twig</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/views/Registration/register.html.twig</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Entity/Agence.php</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Entity/User.php</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/FrontBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/agance/web/js/app.js</file>
-            <file>file:/C:/wamp/www/agance/src/Agence/Bundle/Admin/OffreAdmin.php</file>
         </group>
     </open-files>
 </project-private>

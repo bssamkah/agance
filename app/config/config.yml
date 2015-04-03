@@ -87,3 +87,10 @@ sonata_block:
 sonata_admin:
     templates:
         layout:  AgenceFrontBundle::admin_layout.html.twig
+dcs_rating:
+    db_driver: orm
+    base_path_to_redirect: / # when the permalink is not configured
+    max_value: 5 # maximum value for the vote (stars displayed)
+    model:
+        rating: Agence\Bundle\FrontBundle\Entity\Rating
+        vote: Agence\Bundle\FrontBundle\Entity\Vote

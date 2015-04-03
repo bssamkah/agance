@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2a8e16d2c815b080d8f8215017c4af19",
+    "hash": "09df86aef581f7354d3748208023bf08",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -67,6 +67,54 @@
                 "slugify"
             ],
             "time": "2015-03-18 08:21:30"
+        },
+        {
+            "name": "damianociarla/rating-bundle",
+            "version": "v1.2",
+            "target-dir": "DCS/RatingBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/damianociarla/DCSRatingBundle.git",
+                "reference": "48d78946309271c343adb3ef2c764b3838bd1408"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/damianociarla/DCSRatingBundle/zipball/48d78946309271c343adb3ef2c764b3838bd1408",
+                "reference": "48d78946309271c343adb3ef2c764b3838bd1408",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/symfony": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "DCS\\RatingBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damiano Ciarla",
+                    "email": "damiano.ciarla@gmail.com",
+                    "homepage": "http://www.damianociarla.it/"
+                }
+            ],
+            "description": "This Bundle provides functionality for a rating system for Symfony2 applications",
+            "homepage": "https://github.com/damianociarla/DCSRatingBundle",
+            "keywords": [
+                "FOSUserBundle",
+                "Rating",
+                "Symfony2",
+                "fos",
+                "star",
+                "twig"
+            ],
+            "time": "2015-02-19 09:10:11"
         },
         {
             "name": "doctrine/annotations",
@@ -1433,16 +1481,16 @@
         },
         {
             "name": "sonata-project/cache",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/cache.git",
-                "reference": "548b14c49474ed006543336d8f0be093089a3797"
+                "reference": "0d2956070d31a1e6d3504b0671ffeb76818b0676"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/cache/zipball/548b14c49474ed006543336d8f0be093089a3797",
-                "reference": "548b14c49474ed006543336d8f0be093089a3797",
+                "url": "https://api.github.com/repos/sonata-project/cache/zipball/0d2956070d31a1e6d3504b0671ffeb76818b0676",
+                "reference": "0d2956070d31a1e6d3504b0671ffeb76818b0676",
                 "shasum": ""
             },
             "require-dev": {
@@ -1479,7 +1527,7 @@
                 {
                     "name": "Thomas Rabaix",
                     "email": "thomas.rabaix@gmail.com",
-                    "homepage": "http://sonata-project.org/"
+                    "homepage": "https://sonata-project.org/"
                 }
             ],
             "description": "Cache library",
@@ -1490,7 +1538,7 @@
                 "mongodb",
                 "redis"
             ],
-            "time": "2014-07-02 20:57:41"
+            "time": "2015-03-21 08:32:46"
         },
         {
             "name": "sonata-project/core-bundle",
@@ -1805,7 +1853,7 @@
         },
         {
             "name": "symfony/expression-language",
-            "version": "v2.6.5",
+            "version": "v2.6.6",
             "target-dir": "Symfony/Component/ExpressionLanguage",
             "source": {
                 "type": "git",
@@ -1970,16 +2018,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.26",
+            "version": "v2.3.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "dd70065d94468de18b722ec692fc3c34e87fd863"
+                "reference": "ce4aab1508dd9642906fc9a120e0d8763e689896"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/dd70065d94468de18b722ec692fc3c34e87fd863",
-                "reference": "dd70065d94468de18b722ec692fc3c34e87fd863",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ce4aab1508dd9642906fc9a120e0d8763e689896",
+                "reference": "ce4aab1508dd9642906fc9a120e0d8763e689896",
                 "shasum": ""
             },
             "require": {
@@ -2074,7 +2122,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-03-17 14:18:00"
+            "time": "2015-04-01 14:28:26"
         },
         {
             "name": "twig/extensions",

@@ -17,10 +17,8 @@
                                         <div class="figure"><a href="{{ path('offre_show',{'id' : offre.id }) }}">
                                                 <img src="{{ asset('images/prop/1-1.png') }}" alt="image">
                                                 <div class="figCaption">
-                                                    <div>${{ offre.prix}}</div>
-                                                    <span class="icon-eye"> 200</span>
-                                                    <span class="icon-heart"> 54</span>
-                                                    <span class="icon-bubble"> 13</span>
+                                                    <div>$ {{ offre.prix}}</div>
+                                                    <span class="icon-bubble">{{offre.comments|length}}</span>
                                                 </div>
                                                 <div class="figView"><span class="icon-eye"></span></div>
                                                 <div class="figType">{{ offre.type }}</div>
@@ -38,9 +36,9 @@
                                         </div>
 
                                         <ul class="cardFeat">
-                                            <li><span class="fa fa-moon-o"></span> 3</li>
-                                            <li><span class="icon-drop"></span> 2</li>
-                                            <li><span class="icon-frame"></span> 3430 m&#178;</li>
+                                            <li><span class="fa fa-moon-o"></span> {{ offre.nbrChambre }}</li>
+                                            <li><span class="fa fa-building-o"></span> {{ offre.etage }}</li>
+                                            <li><span class="icon-frame"></span> {{ offre.surface }} m&#178;</li>
                                             {% set favoris =  offre.offrefavoris %}
                                             {%set i = 0 %}
                                             {% for favori in favoris %}

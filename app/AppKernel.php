@@ -22,6 +22,7 @@ class AppKernel extends Kernel {
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new DCS\RatingBundle\DCSRatingBundle(),
             
         );
 

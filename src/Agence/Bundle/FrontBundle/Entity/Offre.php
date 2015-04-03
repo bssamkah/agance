@@ -116,6 +116,13 @@ class Offre {
      * @ORM\JoinColumn(nullable=false)
      */
     private $responsable;
+    
+     /**
+     * @ORM\OneToMany(targetEntity="Agence\Bundle\FrontBundle\Entity\Comment", mappedBy="offre" )
+     *
+     */
+     protected $comments;
+    
     public function __construct() {
        
     }
@@ -496,5 +503,38 @@ class Offre {
     public function getOffrefavoris()
     {
         return $this->offrefavoris;
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\Comment $comments
+     * @return Offre
+     */
+    public function addComment(\Agence\Bundle\FrontBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Agence\Bundle\FrontBundle\Comment $comments
+     */
+    public function removeEventcomment(\Agence\Bundle\FrontBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }
