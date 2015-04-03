@@ -62,9 +62,9 @@ class RechercheController extends Controller {
         }
         $res['offres'] = $offres;
         $res['chambre'] = $chambre;
-         $res['chambre'] = $etage;
-          $res['chambre'] = $type;
-           $res['chambre'] = $prix;
+         $res['etage'] = $etage;
+          $res['type'] = $type;
+           $res['prix'] = $prix;
        
       
         $res['nbr_offres'] = count($res['offres']);

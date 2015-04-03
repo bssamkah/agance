@@ -2019,56 +2019,6 @@
         ]
     },
     {
-        "name": "damianociarla/rating-bundle",
-        "version": "v1.2",
-        "version_normalized": "1.2.0.0",
-        "target-dir": "DCS/RatingBundle",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/damianociarla/DCSRatingBundle.git",
-            "reference": "48d78946309271c343adb3ef2c764b3838bd1408"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/damianociarla/DCSRatingBundle/zipball/48d78946309271c343adb3ef2c764b3838bd1408",
-            "reference": "48d78946309271c343adb3ef2c764b3838bd1408",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2",
-            "symfony/symfony": "~2.3"
-        },
-        "time": "2015-02-19 09:10:11",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "DCS\\RatingBundle": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Damiano Ciarla",
-                "email": "damiano.ciarla@gmail.com",
-                "homepage": "http://www.damianociarla.it/"
-            }
-        ],
-        "description": "This Bundle provides functionality for a rating system for Symfony2 applications",
-        "homepage": "https://github.com/damianociarla/DCSRatingBundle",
-        "keywords": [
-            "FOSUserBundle",
-            "Rating",
-            "Symfony2",
-            "fos",
-            "star",
-            "twig"
-        ]
-    },
-    {
         "name": "symfony/symfony",
         "version": "v2.3.27",
         "version_normalized": "2.3.27.0",
@@ -2291,6 +2241,56 @@
             "memcached",
             "mongodb",
             "redis"
+        ]
+    },
+    {
+        "name": "damianociarla/rating-bundle",
+        "version": "v1.2",
+        "version_normalized": "1.2.0.0",
+        "target-dir": "DCS/RatingBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/damianociarla/DCSRatingBundle.git",
+            "reference": "48d78946309271c343adb3ef2c764b3838bd1408"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/damianociarla/DCSRatingBundle/zipball/48d78946309271c343adb3ef2c764b3838bd1408",
+            "reference": "48d78946309271c343adb3ef2c764b3838bd1408",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "symfony/symfony": "~2.3"
+        },
+        "time": "2015-02-19 09:10:11",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "DCS\\RatingBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Damiano Ciarla",
+                "email": "damiano.ciarla@gmail.com",
+                "homepage": "http://www.damianociarla.it/"
+            }
+        ],
+        "description": "This Bundle provides functionality for a rating system for Symfony2 applications",
+        "homepage": "https://github.com/damianociarla/DCSRatingBundle",
+        "keywords": [
+            "FOSUserBundle",
+            "Rating",
+            "Symfony2",
+            "fos",
+            "star",
+            "twig"
         ]
     }
 ]
