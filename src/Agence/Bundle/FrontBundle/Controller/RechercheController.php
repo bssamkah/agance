@@ -29,24 +29,42 @@ class RechercheController extends Controller {
       
         $chambre = $request->query->get('chambre');
          $etage = $request->query->get('etage');
+          $type = $request->query->get('type');
+          $prix = $request->query->get('prix');
         $offres = NULL;
+       
+       $condition = "WHERE 1=1";
+        $parameters = array();
+       
+       if ($chambre != null) {
+            $condition = $condition . " AND o.chambre=:chambre";
+            $offres[':chambre'] = $chambre;
+        }
+        if ($etage != null) {
+            $condition = $condition . " AND UPPER(o.etage) LIKE :etage";
+            $parameters[':etage'] = $etage;
+        }
+        if ($type != null) {
+            $condition = $condition . " AND UPPER(o.type) LIKE :type";
+            $parameters[':type'] = $type;
+        }
+        if ($prix != null) {
+            $condition = $condition . " AND o.prix = :prix";
+            $parameters[':prix'] = $prix;
+        }
+        
+        
         $em = $this->getDoctrine()->getEntityManager();
-       
-       
-        if ($chambre != null) {
-            $offres = $em->getRepository("AgenceFrontBundle:Offre")->findBy(array('nbrChambre' => $chambre));
-           
-            }
-            if ($etage != null) {
-            $offres = $em->getRepository("AgenceFrontBundle:Offre")->findBy(array('etage' => $etage));
-           
-            }
-            
-       
-       
-
+        if($chambre || $etage || $type || $prix != Null){
+           $offress = $em->createQuery("SELECT u FROM AgenceFrontBundle:Offre o " . $condition);
+            $offress->setParameters($parameters);
+            $offres = $offress->getResult();
+        }
         $res['offres'] = $offres;
         $res['chambre'] = $chambre;
+         $res['chambre'] = $etage;
+          $res['chambre'] = $type;
+           $res['chambre'] = $prix;
        
       
         $res['nbr_offres'] = count($res['offres']);

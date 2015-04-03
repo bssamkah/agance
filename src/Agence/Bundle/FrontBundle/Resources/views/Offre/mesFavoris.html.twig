@@ -14,19 +14,19 @@
                             {% for offre in offres %}
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="card">
-                                        <div class="figure"><a href="{{ path('offre_show',{'id' : offre.id }) }}">
+                                        <div class="figure"><a href="{{ path('offre_show',{'id' : offre.offre.id }) }}">
                                                 <img src="{{ asset('images/prop/1-1.png') }}" alt="image">
                                                 <div class="figCaption">
-                                                    <div>${{ offre.prix}}</div>
+                                                    <div>${{ offre.offre.prix}}</div>
                                                     <span class="icon-eye"> 200</span>
                                                     <span class="icon-heart"> 54</span>
                                                     <span class="icon-bubble"> 13</span>
                                                 </div>
                                                 <div class="figView"><span class="icon-eye"></span></div>
-                                                <div class="figType">{{ offre.type }}</div>
+                                                <div class="figType">{{ offre.offre.type }}</div>
                                             </a> </div>
-                                        <h2>{{ offre.titre }}</h2>
-                                        <div class="cardAddress"><span class="icon-pointer"></span> {{ offre.lieu }}</div>
+                                        <h2>{{ offre.offre.titre }}</h2>
+                                        <div class="cardAddress"><span class="icon-pointer"></span> {{ offre.offre.lieu }}</div>
                                         <div class="cardRating">
                                             <span class="fa fa-star"></span>
                                             <span class="fa fa-star"></span>
@@ -75,11 +75,11 @@
 {% block javascript %}
     <script>
         {% for offre in offres %}
-            $('#ajouterFavoris{{offre.id}}').click(function(){
-               $('#loaderfavoris{{offre.id}}').show();
-                $('#ajouterFavoris{{offre.id}}').hide();
+            $('#ajouterFavoris{{offre.offre.id}}').click(function(){
+               $('#loaderfavoris{{offre.offre.id}}').show();
+                $('#ajouterFavoris{{offre.offre.id}}').hide();
            
-                    var id = "{{offre.id}}";
+                    var id = "{{offre.offre.id}}";
                     $.ajax({
                     type: "POST",
                             url: "{{path('add_favoris')}}",
@@ -87,8 +87,8 @@
                             dataType: 'json',
                             success: function () {
 
-                           $('#loaderfavoris{{offre.id}}').hide();
-                           $('#hidid{{offre.id}}').show();
+                           $('#loaderfavoris{{offre.offre.id}}').hide();
+                           $('#hidid{{offre.offre.id}}').show();
                             }
                     });
                      });
@@ -146,8 +146,8 @@
                 }
                 {% for offre in offres %}
 
-                                                var myLatLng = new google.maps.LatLng({{offre.lat}}, {{offre.lng}});
-                                                        var marker_{{ offre.id}} = new google.maps.Marker({
+                                                var myLatLng = new google.maps.LatLng({{offre.offre.lat}}, {{offre.offre.lng}});
+                                                        var marker_{{ offre.offre.id}} = new google.maps.Marker({
                                                         position: myLatLng,
                                                                 map: mapAddOf,
                                                                 icon: new google.maps.MarkerImage('/agance/web/images/marker-green.png'),
@@ -156,17 +156,17 @@
                                                                 title: "Cliquez pour voir aperçu"
                                                         });
                                                         
-                                                            var contenuInfoBulle_{{offre.id}} =  '<div class="infoW">' +
+                                                            var contenuInfoBulle_{{offre.offre.id}} =  '<div class="infoW">' +
                                     '<div class="propImg">' +
                                         '<img src="/agance/web/images/prop/1-1.png">' +
                                         '<div class="propBg">' +
-                                            '<div class="propPrice">${{offre.prix}}</div>' +
-                                            '<div class="propType">{{offre.type}}</div>' +
+                                            '<div class="propPrice">${{offre.offre.prix}}</div>' +
+                                            '<div class="propType">{{offre.offre.type}}</div>' +
                                         '</div>' +
                                     '</div>' +
                                     '<div class="paWrapper">' +
-                                        '<div class="propTitle">{{offre.titre}}</div>' +
-                                        '<div class="propAddress">{{offre.lieu}}</div>' +
+                                        '<div class="propTitle">{{offre.offre.titre}}</div>' +
+                                        '<div class="propAddress">{{offre.offre.lieu}}</div>' +
                                     '</div>' +
                                     '<div class="propRating">' +
                                         '<span class="fa fa-star"></span>' +
@@ -176,22 +176,22 @@
                                         '<span class="fa fa-star-o"></span>' +
                                     '</div>' +
                                     '<ul class="propFeat">' +
-                                        '<li><span class="fa fa-moon-o"></span> {{offre.nbrchambre}}</li>' +
-                                        '<li><span class="icon-drop"></span>{{offre.etage}}</li>' +
-                                        '<li><span class="icon-frame"></span> {{offre.surface}}</li>' +
+                                        '<li><span class="fa fa-moon-o"></span> {{offre.offre.nbrchambre}}</li>' +
+                                        '<li><span class="icon-drop"></span>{{offre.offre.etage}}</li>' +
+                                        '<li><span class="icon-frame"></span> {{offre.offre.surface}}</li>' +
                                     '</ul>' +
                                     '<div class="clearfix"></div>' +
                                     '<div class="infoButtons">' +
                                         '<a class="btn btn-sm btn-round btn-gray btn-o closeInfo">Close</a>' +
-                                        '<a href="{{ path('offre_show',{'id': offre.id})}}" class="btn btn-sm btn-round btn-green viewInfo">View</a>' +
+                                        '<a href="{{ path('offre_show',{'id': offre.offre.id})}}" class="btn btn-sm btn-round btn-green viewInfo">View</a>' +
                                     '</div>' +
                                  '</div>';
 
                                                                    
-                                                            google.maps.event.addListener(marker_{{offre.id}}, 'click', function() {
+                                                            google.maps.event.addListener(marker_{{offre.offre.id}}, 'click', function() {
                                                             
-                                                            infobox.setContent(contenuInfoBulle_{{offre.id}});
-                                                                    infobox.open(mapAddOf, marker_{{offre.id}});
+                                                            infobox.setContent(contenuInfoBulle_{{offre.offre.id}});
+                                                                    infobox.open(mapAddOf, marker_{{offre.offre.id}});
                                                             });
                                                             $(document).on('click', '.closeInfo', function() {
                                                     infobox.open(null, null);
