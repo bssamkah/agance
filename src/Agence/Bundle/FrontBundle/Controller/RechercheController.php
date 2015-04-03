@@ -37,8 +37,8 @@ class RechercheController extends Controller {
         $parameters = array();
        
        if ($chambre != null) {
-            $condition = $condition . " AND o.chambre=:chambre";
-            $offres[':chambre'] = $chambre;
+            $condition = $condition . " AND o.nbrChambre = :chambre";
+            $parameters[':chambre'] = $chambre;
         }
         if ($etage != null) {
             $condition = $condition . " AND UPPER(o.etage) LIKE :etage";
@@ -56,7 +56,7 @@ class RechercheController extends Controller {
         
         $em = $this->getDoctrine()->getEntityManager();
         if($chambre || $etage || $type || $prix != Null){
-           $offress = $em->createQuery("SELECT u FROM AgenceFrontBundle:Offre o " . $condition);
+           $offress = $em->createQuery("SELECT o FROM AgenceFrontBundle:Offre o " . $condition);
             $offress->setParameters($parameters);
             $offres = $offress->getResult();
         }
