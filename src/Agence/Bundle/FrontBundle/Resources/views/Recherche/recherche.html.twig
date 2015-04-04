@@ -9,76 +9,87 @@
                     <h1 class="osLight">Recherche</h1>
                     <a href="#" class="handleFilter"><span class="icon-equalizer"></span></a>
                     <div class="clearfix"></div>
-                    <form class="filterForm">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 formItem">
-                                <div class="formField">
-                                    <label>Type d'offre</label>
-                                    <a href="#" data-toggle="dropdown" class="btn btn-gray dropdown-btn dropdown-toggle propTypeSelect">
-                                        <span class="dropdown-label">Tout</span>
-                                        <span class="fa fa-angle-down dsArrow"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-select full" role="menu">
-                                        <li class="active"><input type="radio" name="pType" checked="checked"><a href="#">Tout</a></li>
-                                        <li><input type="radio" name="pType"><a href="#">A louer</a></li>
-                                        <li><input type="radio" name="pType"><a href="#">A vendre</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 formItem">
-                                <div class="formField">
-                                    <label>Prix</label>
-                                    <div class="slider priceSlider">
-                                        <div class="sliderTooltip">
-                                            <div class="stArrow"></div>
-                                            <div class="stLabel"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 formItem">
-                                <div class="formField">
-                                    <label>Surface</label>
-                                    <div class="slider areaSlider">
-                                        <div class="sliderTooltip">
-                                            <div class="stArrow"></div>
-                                            <div class="stLabel"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 formItem">
-                                <div class="formField">
-                                    <label>Chambres</label>
-                                    <div class="volume">
-                                        <a href="#" class="btn btn-gray btn-round-left"><span class="fa fa-angle-left"></span></a>
-                                        <input type="text" class="form-control" readonly="readonly" value="1">
-                                        <a href="#" class="btn btn-gray btn-round-right"><span class="fa fa-angle-right"></span></a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 formItem">
-                                <div class="formField">
-                                    <label>Etages</label>
-                                    <div class="volume">
-                                        <a href="#" class="btn btn-gray btn-round-left"><span class="fa fa-angle-left"></span></a>
-                                        <input type="text" class="form-control" readonly="readonly" value="1">
-                                        <a href="#" class="btn btn-gray btn-round-right"><span class="fa fa-angle-right"></span></a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                 
+                        <form action="{{ path('offre_recherche',{'chambre':res.chambre}) }}" method="get" class="form-inline" role="form">
+
+                
+                <div class="form-group  adv btn btn-white dropdown-toggle">
+                    <input list="chambrelist" type="text" name="chambre" value="{{res.chambre}}" class="search-optimus" placeholder="Nbre Chambres">
+                    <datalist id="chambrelist" class="select">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                        <option value="4">
+                        <option value="5">
+
+                    </datalist>
+                   
+
+                </div>
+                    <div class="form-group  adv btn btn-white dropdown-toggle">
+                    <input list="etagelist" type="text" name="etage" value="{{res.etage}}" class="search-optimus" placeholder="N° etage">
+                    <datalist id="etagelist" class="select">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                        <option value="4">
+                        <option value="5">
+
+                    </datalist>
+                   
+
+                </div>
+                    <div class="form-group  adv btn btn-white dropdown-toggle">
+                    <input list="typliste" type="text" name="type" value="{{res.type}}" class="search-optimus" placeholder="Type">
+                    <datalist id="typliste" class="select">
+                        <option value="location">
+                        <option value="vente">
+                        
+
+                    </datalist>
+                   
+
+                </div>
+                    <div class="form-group  adv btn btn-white dropdown-toggle">
+                    <input  type="text" name="prix" value="{{res.prix}}" class="search-optimus" placeholder="Prix">
+                </div>
+
+                {#<div class="form-group hidden-xs adv">
+                    <a href="#" data-toggle="dropdown" class="btn btn-white dropdown-toggle">
+                        <span class="dropdown-label">Etage</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-select">
+                        <li class="active"><input type="radio"  name="bathno" checked="checked"><a href="#">Salle de bain</a></li>
+                        <li><input value="{{res.etage}}" type="radio" name="etage"><a href="#">1</a></li>
+                        <li><input value="{{res.etage}}" type="radio" name="etage"><a href="#">2</a></li>
+                        <li><input  value="{{res.etage}}" type="radio" name="etage"><a href="#">3</a></li>
+                        <li><input value="{{res.etage}}" type="radio" name="etage"><a href="#">4</a></li>
+                    </ul>
+
+                </div>
+                <div class="form-group hidden-xs adv">
+                    <div class="input-group">
+                        <div class="input-group-addon">$</div>
+                        <input class="form-control price" type="text" value="{{res.prix}}" placeholder="À partir de">
+                    </div>
+                </div>
+                
+                <div class="form-group hidden-xs adv">
+                    <div class="checkbox custom-checkbox"><label><input  value="{{res.type}}" type="checkbox"><span class="fa fa-check"></span> À Louer</label></div>
+                </div>
+                <div class="form-group hidden-xs adv">
+                    <div class="checkbox custom-checkbox"><label><input value="{{res.type}}" type="checkbox"><span class="fa fa-check"></span> À Vendre</label></div>
+                </div>#}
+                <div class="form-group">
+                    <button  type="submit" value="Submit" class="btn btn-green">Recherche</button>
+
+                </div>
+            </form>
                 </div>
                 <div class="resultsList">
                     <div class="row">
-                        {% for offre in offres %}
+                        {% for offre in res.offres %}
+                        
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <a href="{{ path('offre_show',{'id' : offre.id }) }}" class="card">
                                 <div class="figure">
