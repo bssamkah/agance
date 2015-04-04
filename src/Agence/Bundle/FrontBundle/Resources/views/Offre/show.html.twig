@@ -52,11 +52,8 @@
                                         <h1 class="pageTitle">{{entity.titre}}</h1>
                                         <div class="address"><span class="icon-pointer"></span> {{entity.lieu}}</div>
                                         <ul class="rating">
-                                            <li><a href="#"><span class="fa fa-star"></span></a></li>
-                                            <li><a href="#"><span class="fa fa-star"></span></a></li>
-                                            <li><a href="#"><span class="fa fa-star"></span></a></li>
-                                            <li><a href="#"><span class="fa fa-star"></span></a></li>
-                                            <li><a href="#"><span class="fa fa-star-o"></span></a></li>
+                                            
+                                            {% include 'DCSRatingBundle:Rating:control.html.twig' with {'id' : entity.id } %}
 
                                         </ul>
 

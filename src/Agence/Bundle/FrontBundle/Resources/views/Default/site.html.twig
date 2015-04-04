@@ -18,6 +18,7 @@
                                                 <img src="{{ asset('images/prop/1-1.png') }}" alt="image">
                                                 <div class="figCaption">
                                                     <div>$ {{ offre.prix}}</div>
+                                                     <span class="icon-eye"> 200</span>
                                                     <span class="icon-bubble">{{offre.comments|length}}</span>
                                                 </div>
                                                 <div class="figView"><span class="icon-eye"></span></div>
@@ -26,12 +27,7 @@
                                         <h2>{{ offre.titre }}</h2>
                                         <div class="cardAddress"><span class="icon-pointer"></span> {{ offre.lieu }}</div>
                                         <div class="cardRating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-o"></span>
-                                            (146)
+                                            {% include 'DCSRatingBundle:Rating:control.html.twig' with {'id' : offre.id } %}
 
                                         </div>
 

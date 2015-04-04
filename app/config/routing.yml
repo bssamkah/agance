@@ -13,6 +13,6 @@ fos_user:
 agence_front:
     resource: "@AgenceFrontBundle/Resources/config/routing.yml"
     prefix: /
-front_office_rating:
-    resource: "@AgenceFrontBundle/Resources/config/routing.yml"
+dcs_rating:
+    resource: "@DCSRatingBundle/Resources/config/routing.xml"
     prefix:   /

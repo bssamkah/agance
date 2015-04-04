@@ -28,12 +28,7 @@
                                         <h2>{{ offre.offre.titre }}</h2>
                                         <div class="cardAddress"><span class="icon-pointer"></span> {{ offre.offre.lieu }}</div>
                                         <div class="cardRating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-o"></span>
-                                            (146)
+                                            {% include 'DCSRatingBundle:Rating:control.html.twig' with {'id' : offre.id } %}
 
                                         </div>
 
