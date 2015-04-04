@@ -37,4 +37,60 @@ class Vote extends BaseVote
    
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\Rating $rating
+     * @return Vote
+     */
+    public function setRating(\Agence\Bundle\FrontBundle\Entity\Rating $rating = null)
+    {
+        $this->rating = $rating;
+    
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return \Agence\Bundle\FrontBundle\Entity\Rating 
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set voter
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\User $voter
+     * @return Vote
+     */
+    public function setVoter(\Agence\Bundle\FrontBundle\Entity\User $voter = null)
+    {
+        $this->voter = $voter;
+    
+        return $this;
+    }
+
+    /**
+     * Get voter
+     *
+     * @return \Agence\Bundle\FrontBundle\Entity\User 
+     */
+    public function getVoter()
+    {
+        return $this->voter;
+    }
 }

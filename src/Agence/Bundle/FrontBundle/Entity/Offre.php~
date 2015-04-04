@@ -89,6 +89,12 @@ class Offre {
      */
     private $etage;
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbvu", type="integer", nullable=true)
+     */
+    private $nbvu;
+    /**
      * @var float
      *
      * @ORM\Column(name="lat", type="float", nullable=true)
@@ -112,10 +118,17 @@ class Offre {
     
     
     /**
-     * @ORM\ManyToOne(targetEntity="Agence\Bundle\FrontBundle\Entity\User",inversedBy="offres", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Agence\Bundle\FrontBundle\Entity\User",inversedBy="offres")
      * @ORM\JoinColumn(nullable=false)
      */
     private $responsable;
+    
+     /**
+     * @ORM\OneToMany(targetEntity="Agence\Bundle\FrontBundle\Entity\Comment", mappedBy="offre" )
+     *
+     */
+     protected $comments;
+    
     public function __construct() {
        
     }
@@ -463,5 +476,71 @@ class Offre {
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Add offrefavoris
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris
+     * @return Offre
+     */
+    public function addOffrefavori(\Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris)
+    {
+        $this->offrefavoris[] = $offrefavoris;
+    
+        return $this;
+    }
+
+    /**
+     * Remove offrefavoris
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris
+     */
+    public function removeOffrefavori(\Agence\Bundle\FrontBundle\Entity\OffreFavoris $offrefavoris)
+    {
+        $this->offrefavoris->removeElement($offrefavoris);
+    }
+
+    /**
+     * Get offrefavoris
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOffrefavoris()
+    {
+        return $this->offrefavoris;
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\Comment $comments
+     * @return Offre
+     */
+    public function addComment(\Agence\Bundle\FrontBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Agence\Bundle\FrontBundle\Comment $comments
+     */
+    public function removeEventcomment(\Agence\Bundle\FrontBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

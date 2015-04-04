@@ -89,6 +89,12 @@ class Offre {
      */
     private $etage;
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbvu", type="integer", nullable=true)
+     */
+    private $nbvu;
+    /**
      * @var float
      *
      * @ORM\Column(name="lat", type="float", nullable=true)
@@ -536,5 +542,38 @@ class Offre {
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set nbvu
+     *
+     * @param integer $nbvu
+     * @return Offre
+     */
+    public function setNbvu($nbvu)
+    {
+        $this->nbvu = $nbvu;
+    
+        return $this;
+    }
+
+    /**
+     * Get nbvu
+     *
+     * @return integer 
+     */
+    public function getNbvu()
+    {
+        return $this->nbvu;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Agence\Bundle\FrontBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Agence\Bundle\FrontBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
     }
 }

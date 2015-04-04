@@ -170,14 +170,4 @@ class Comment
 
  
    
-
-    /**
-     * Get offre
-     *
-     * @return \Agence\Bundle\FrontBundle\Entity\Offre 
-     */
-    public function getOffre()
-    {
-        return $this->offre;
-    }
 }
