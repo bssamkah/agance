@@ -175,4 +175,28 @@ class OffreController extends Controller {
         
     }
 
+    
+     /**
+     * 
+     *
+     * @Route("/envoiEmail", name="envoiEmail")
+     * 
+     * @Method("GET|POST")
+     */
+    public function EmailAction()
+
+ 
+    {
+        $mail = \Swift_Message::newInstance();
+
+        $mail
+            ->setFrom('benslamakhaled@gmail.com')
+            ->setTo('benslamakhaled@gmail.com')
+            ->setSubject('hello')
+            ->setBody('body')
+            ->setContentType('text/html');
+
+        $this->mailer->send($mail);
+    }
+
 }
